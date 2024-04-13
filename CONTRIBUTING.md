@@ -18,7 +18,7 @@ These are the broad classifications under which our content is grouped. Denoted 
 
 ## Article Folders
 
-Each article possesses its designated folder, signified by a two-digit number, followed by a period, a hashtag with a space, and the article’s slug in kebab-case. For exmample, an article on button design would nest inside the folder like this: `02.# button-design`
+Each article possesses its designated folder, signified by a two-digit number (if you want to order maually), followed by a period (If number provided), a hashtag with a space, and the article’s slug in kebab-case. For exmample, an article on button design would nest inside the folder like this: `02.# button-design`, and this is also acceptable: `# button-design`, which it will order alphabetically.
 
 -   **Article Metadata and Content Files**: Within these folders, `index.meta.yml` harbors metadata shared across languages in YAML format. Distinct language versions of the article are found in files named `index.{language_code}.mdx`, each containing front matter metadata specific to that language.
 
