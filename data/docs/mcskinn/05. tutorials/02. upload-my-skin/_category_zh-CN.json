@@ -1,0 +1,12 @@
+{
+    "label": "上传我的皮肤",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "上传我的皮肤"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}

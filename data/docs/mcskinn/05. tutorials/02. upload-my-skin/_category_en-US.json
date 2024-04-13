@@ -1,0 +1,12 @@
+{
+    "label": "Upload my skin",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "Upload my skin"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}
