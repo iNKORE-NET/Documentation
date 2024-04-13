@@ -1,0 +1,12 @@
+{
+    "label": "Tips & Tricks",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "Tips & Tricks"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}
