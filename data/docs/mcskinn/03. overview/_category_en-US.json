@@ -1,0 +1,12 @@
+{
+    "label": "Overview",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "Overview"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}

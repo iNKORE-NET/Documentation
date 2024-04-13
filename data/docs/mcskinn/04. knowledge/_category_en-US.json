@@ -1,0 +1,12 @@
+{
+    "label": "Knowledge",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "Knowledge"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}

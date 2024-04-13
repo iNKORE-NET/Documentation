@@ -1,0 +1,12 @@
+{
+    "label": "概览",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "概览"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}
