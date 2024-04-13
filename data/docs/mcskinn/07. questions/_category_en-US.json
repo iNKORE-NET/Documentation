@@ -1,0 +1,12 @@
+{
+    "label": "Questions",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "Question"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}

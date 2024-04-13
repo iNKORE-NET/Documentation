@@ -1,0 +1,12 @@
+{
+    "label": "问答",
+    "link": 
+    {
+        "type": "generated-index",
+        "title": "问答"
+    },
+    "customProps": 
+    {
+        "description": "Add description!"
+    }
+}
