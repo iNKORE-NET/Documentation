@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "制作一个 Minecraft 皮肤"
+        "title": "教程：制作一个 Minecraft 皮肤",
+        "description": "Add description!"
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }

@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "问答"
+        "title": "问答",
+        "description": "Add description!"
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }
