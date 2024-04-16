@@ -15,7 +15,7 @@ You can use a CheckBox in the user interface (UI) of your application to represe
 
 The following example creates a CheckBox and handles the Checked, Unchecked, and Indeterminate events.
 
-```xml
+```xaml
 <Grid VerticalAlignment="Center">
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
@@ -98,7 +98,7 @@ If you have multiple options appearing in a list, you can preserve space by usin
 
 ### Styles
 
-There are one built-in style for Button control:
+There is one built-in style for Button control:
 
 - **DefaultCheckBoxStyle**: The default style for CheckBox, you can access it with `ui:ThemeKeys.DefaultCheckBoxStyleKey`.
 
@@ -110,7 +110,7 @@ If you are using CheckBox in a compact layout, you might find out that even if t
 
 To fix this, you can simply set **MinWidth** property to `0` like this:
 
-```xml
+```xaml
 <CheckBox Content="?" MinWidth="0"/>
 ```
 

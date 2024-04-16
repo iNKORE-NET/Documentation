@@ -24,7 +24,7 @@ The following examples show the common usage of Button control.
 
 By using the Button class, you can create a button. You can use Content property to add a content, and use Click event to handle when it's clicked.
 
-```xml
+```xaml
 <Button Content="Click me" Click="Button_Click"/>
 ```
 ```csharp
@@ -42,7 +42,7 @@ Then you can see a normal button with text, and try clicking it!
 
 Buttons often have only simple string content, but you can use any object as content. With the follwing code, you will get a button with only an icon and a tooltip:
 
-```xml
+```xaml
 <Button ToolTip="Save my documents">
     <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Save}"/>
 </Button>
@@ -56,7 +56,7 @@ For more information about *ui:FontIcon*, please [click here](../media/icon-elem
 
 If you want both icon and text, the best way is to use ui:SimpleStackPanel. With the following example, you'll get a button with both icon and text.
 
-```xml
+```xaml
 <Button>
     <ui:SimpleStackPanel Orientation="Horizontal" Spacing="5">
         <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Save}"/>
@@ -67,7 +67,7 @@ If you want both icon and text, the best way is to use ui:SimpleStackPanel. With
 
 ![](a-button-with-icon-and-text.png)
 
-For more information about *ui:SimpleStackPanel*, please [click here](../layout/simple-stack-panel#FontIcon)
+For more information about *ui:SimpleStackPanel*, please [click here](../layout/simple-stack-panel)
 
 ### Accent button
 
@@ -75,7 +75,7 @@ Accent buttons are high-emphasis, distinguished by their use of elevation and fi
 
 To apply accent style to you button, you need to set the Style property to `{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}`.
 
-```xml
+```xaml
 <Button Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}"/>
 ```
 
@@ -83,7 +83,7 @@ Since a accent button is usually the primary action of the whole window, it's be
 
 The complete code should look like this:
 
-```xml
+```xaml
 <Button Content="Accent button" Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" IsDefault="True"/>
 ```
 
