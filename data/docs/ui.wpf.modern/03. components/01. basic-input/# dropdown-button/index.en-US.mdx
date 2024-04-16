@@ -10,7 +10,7 @@ A DropDownButton is a button that shows a chevron as a visual indicator that it 
 
 - Inheritance: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button) → [DropDownButton](.)
 
-The drop down button inherits the Click event, but you typically don't use it. Instead, you use the Flyout property to attach a flyout and invoke actions by using menu options in the flyout. The flyout opens automatically when the button is clicked. Be sure to specify the Placement property of your flyout to ensure the desired placement in relation to the button. The default placement algorithm might not produce the intended placement in all situations. For more info about flyouts, see Flyouts and Menu flyout and menu bar.
+The drop down button inherits the Click event, but you typically don't use it. Instead, you use the Flyout property to attach a flyout and invoke actions by using menu options in the flyout. The flyout opens automatically when the button is clicked. Be sure to specify the Placement property of your flyout to ensure the desired placement in relation to the button. The default placement algorithm might not produce the intended placement in all situations. For more info about flyouts, see **Flyout** and **MenuFlyout**.
 
 ## Examples
 
@@ -120,9 +120,7 @@ See more at: ____
 
 ### Styles
 
-There is one built-in style for DropDownButton control:
-
-- **DefaultDropDownButtonStyle**: The default style for DropDownButton, you can access it with `ui:ThemeKeys.DefaultDropDownButtonStyleKey`.
+There is one built-in style for DropDownButton control. Since this is a control directly from `iNKORE.UI.WPF.Modern.Controls.dll`, the default style key is `null`, you can use `{x:Null}` to apply the default style.
 
 ## See also
 
