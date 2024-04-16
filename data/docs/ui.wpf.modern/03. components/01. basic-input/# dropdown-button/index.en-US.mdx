@@ -18,7 +18,7 @@ The drop down button inherits the Click event, but you typically don't use it. I
 
 This code makes a DropDownButton that has a flyout which opens when the button is clicked:
 
-```xaml
+```xml
 <ui:DropDownButton Content="Click me!">
     <ui:DropDownButton.Flyout>
         <ui:Flyout Placement="Bottom">
@@ -34,7 +34,7 @@ This code makes a DropDownButton that has a flyout which opens when the button i
 
 This example shows how to create a drop down button with a MenuFlyout that contains commands for paragraph alignment in a TextBox.
 
-```xaml
+```xml
 <ui:DropDownButton x:Name="DropDownButton_Align">
 
     <ui:FontIcon x:Name="FontIcon_Align" Icon="{x:Static ui:SegoeFluentIcons.AlignLeft}"/>
@@ -98,7 +98,7 @@ private void Button_SaveScreenshot_Click(object sender, RoutedEventArgs e)
 
 The DropDownButton has a chevron arrow in the right by default. You can set **ShowChevronArrow** to false if you want to hide it. If you do so, it will look completely like a Button, but the Flyout can still be opened.
 
-```xaml
+```xml
 <ui:DropDownButton Content="DropDownButton looks like a button!" ShowChevronArrow="False"/>
 ```
 

@@ -18,7 +18,7 @@ A **HyperlinkButton** looks like hyperlink text, but works like a button. You ca
 
 Handle the **Click** event **(Recommended)**. This works just like the **Click** event of a standard **Button**, and can be used to navigate within your app.
 
-```xaml
+```xml
 <ui:HyperlinkButton Content="iNKORE's offical site" RaiseHyperlinkClicks="False" Click="HyperlinkButton_Click"/>
 ```
 ```csharp
@@ -33,7 +33,7 @@ private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
 
 ![](a-hyperlink-button.png)
 
-:::warn
+:::warning
 
 Pay attention to **RaiseHyperlinkClicks** property! It will be introduced in the following sections.
 
@@ -43,7 +43,7 @@ Pay attention to **RaiseHyperlinkClicks** property! It will be introduced in the
 
 Set the **NavigateUri** property. When a user clicks it, it will automatically open the URI in the default browser.
 
-```xaml
+```xml
 <ui:HyperlinkButton Content="iNKORE's offical site" NavigateUri="https://inkore.net/"/>
 ```
 
