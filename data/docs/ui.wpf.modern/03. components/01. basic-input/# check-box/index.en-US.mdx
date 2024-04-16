@@ -70,6 +70,26 @@ CheckBox controls inherit from [ToggleButton](./toggle-button) and can have thre
 
 A CheckBox is a ContentControl, which means that it can contain a single object of any type (such as a string, an image, or a panel). For more information, see the [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) class.
 
+### Is this the right control?
+
+Use a single check box for a binary yes/no choice, such as with a "Remember me?" login scenario or with a terms of service agreement.
+
+![A single check box used for an individual choice](single-check-box.png)
+
+For a binary choice, the main difference between a check box and a [**toggle switch**](./toggle-switch) is that the check box is for status and the toggle switch is for action. You can delay committing a check box interaction (as part of a form submit, for example), while you should immediately commit a toggle switch interaction. Also, only check boxes allow for multi-selection.
+
+Use **multiple check boxes** for multi-select scenarios in which a user chooses one or more items from a group of choices that are not mutually exclusive.
+
+Create a group of check boxes when users can select any combination of options.
+
+![Selecting multiple options with check boxes](multiple-options.png)
+
+When options can be grouped, you can use an indeterminate check box to represent the whole group. Use the check box's indeterminate state when a user selects some, but not all, sub-items in the group.
+
+![Check boxes used to show a mixed choice](tree-check-boxes.png)
+
+Both check box and radio button controls let the user select from a list of options. Check boxes let the user select a combination of options. In contrast, radio buttons let the user make a single choice from mutually exclusive options. When there is more than one option but only one can be selected, use a [radio button](./radio-button) instead.
+
 :::tip
 
 If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
@@ -103,6 +123,8 @@ To fix this, you can simply set **MinWidth** property to `0` like this:
 - [CheckBox Class](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.checkbox)
 
 - [CheckBox - WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/checkbox)
+
+- [CheckBox - Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/controls/checkbox)
 
 ### Related controls
 
