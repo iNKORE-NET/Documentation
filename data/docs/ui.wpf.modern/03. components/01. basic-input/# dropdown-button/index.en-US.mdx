@@ -1,3 +1,141 @@
 ---
 description: A button that displays a flyout of choices when clicked.
 ---
+
+# DropDownButton
+
+A DropDownButton is a button that shows a chevron as a visual indicator that it has an attached flyout that contains more options. It has the same behavior as a standard Button control with a flyout; only the appearance is different.
+
+- Class: [iNKORE.UI.WPF.Modern.Controls](..)[.DropDownButton](.)
+
+- Inheritance: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button) → [DropDownButton](.)
+
+The drop down button inherits the Click event, but you typically don't use it. Instead, you use the Flyout property to attach a flyout and invoke actions by using menu options in the flyout. The flyout opens automatically when the button is clicked. Be sure to specify the Placement property of your flyout to ensure the desired placement in relation to the button. The default placement algorithm might not produce the intended placement in all situations. For more info about flyouts, see Flyouts and Menu flyout and menu bar.
+
+## Examples
+
+### Basic DropDownButton
+
+This code makes a DropDownButton that has a flyout which opens when the button is clicked:
+
+```xaml
+<ui:DropDownButton Content="Click me!">
+    <ui:DropDownButton.Flyout>
+        <ui:Flyout Placement="Bottom">
+            <TextBlock Text="Hi there!" Width="200" Height="120"/>
+        </ui:Flyout>
+    </ui:DropDownButton.Flyout>
+</ui:DropDownButton>
+```
+
+![](basic-dropdown-button.png)
+
+### With MenuFlyout
+
+This example shows how to create a drop down button with a MenuFlyout that contains commands for paragraph alignment in a TextBox.
+
+```xaml
+<ui:DropDownButton x:Name="DropDownButton_Align">
+
+    <ui:FontIcon x:Name="FontIcon_Align" Icon="{x:Static ui:SegoeFluentIcons.AlignLeft}"/>
+
+    <ui:DropDownButton.Flyout>
+        <ui:MenuFlyout>
+            
+            <MenuItem Header="Align Left" Tag="left" Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.AlignLeft}"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Align Center" Tag="center" Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.AlignCenter}"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Align Right" Tag="right" Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.AlignRight}"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            
+        </ui:MenuFlyout>
+    </ui:DropDownButton.Flyout>
+</ui:DropDownButton>
+
+<TextBox x:Name="TextBox_Text" Text="Text!" Width="200" Padding="10,6,6,6"/>
+
+```
+```csharp
+private void Button_SaveScreenshot_Click(object sender, RoutedEventArgs e)
+{
+    RenderTargetBitmap targetBitmap = new RenderTargetBitmap(
+        (int)Viewbox_Viewport.ActualWidth,
+        (int)Viewbox_Viewport.ActualHeight,
+        96d,
+        96d,
+        PixelFormats.Default);
+
+    targetBitmap.Render(Viewbox_Viewport);
+
+
+    if (saveFileDialog.ShowDialog() == true)
+    {
+        BmpBitmapEncoder encoder = new BmpBitmapEncoder();
+        encoder.Frames.Add(BitmapFrame.Create(targetBitmap));
+        // save file to disk
+        using (FileStream fs = File.Open(saveFileDialog.FileName, FileMode.OpenOrCreate))
+        {
+            encoder.Save(fs);
+        }
+    }
+}
+
+```
+
+## Remarks
+
+### ShowChevronArrow
+
+The DropDownButton has a chevron arrow in the right by default. You can set **ShowChevronArrow** to false if you want to hide it. If you do so, it will look completely like a Button, but the Flyout can still be opened.
+
+```xaml
+<ui:DropDownButton Content="DropDownButton looks like a button!" ShowChevronArrow="False"/>
+```
+
+![](no-chevron-arrow.png)
+
+### FlyoutOpeningMode
+
+The FlyoutOpeningMode determines when should the flyout be opened. 
+
+See more at:  ____
+
+### Elevation
+
+The button control comes with an elevation border effect by default. You can use the `ui:ElevationBorder` to customize its elevation.
+
+See more at: ____
+
+
+
+### Styles
+
+There is one built-in style for DropDownButton control:
+
+- **DefaultDropDownButtonStyle**: The default style for DropDownButton, you can access it with `ui:ThemeKeys.DefaultDropDownButtonStyleKey`.
+
+## See also
+
+### Microsoft Learn
+
+- [Buttons # Drop down button - Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/controls/buttons#example---drop-down-button)
+
+### Related controls
+
+- [AppBarButton](../menu-and-toolbars/appbar-button)
+
+- [Flyout](../dialogs/flyout)
+
+- [MenuFlyout](../menu-and-toolbars/menu-flyout)
+
+- [SplitButton](./split-button)
