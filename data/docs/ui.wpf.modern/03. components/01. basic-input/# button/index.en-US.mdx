@@ -1,12 +1,125 @@
 ---
-description: Represents a Windows button control, which reacts to the Click event.
+description: A control that responds to user input and raises a Click event.
 ---
 
 # Button
 
+- **Class**: [System.Windows.Controls](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls)[.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+
+- **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object?view=windowsdesktop-8.0) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control?view=windowsdesktop-8.0) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol?view=windowsdesktop-8.0) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase?view=windowsdesktop-8.0) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+
 Buttons allow users to take actions, and make choices, with a single tap.
-This is a native WPF control.
 
-Class: [System.Windows.Controls.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+The main purpose of a **Button** is to make something happen when a user clicks it. There are two ways you can make something happen:
 
-## Basic button
+- Handle the **Click** event.
+- Bind the **Command** property to an ICommand implementation that describes the command logic.
+
+
+## Examples
+
+The following examples show the common usage of Button control.
+
+### A basic button
+
+By using the **Button** class, you can create a button. You can use **Content** property to add a content, and use **Click** event to handle when it's clicked.
+
+```xml
+<Button Content="Click me" Click="Button_Click"/>
+```
+```csharp
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    // Do something when the button is clicked!
+}
+```
+
+Then you can see a normal button with text, and try clicking it!
+
+![](a-basic-button.png)
+
+### A button with icon
+
+Buttons often have only simple string content, but you can use any object as content. With the follwing code, you will get a button with only an icon and a tooltip:
+
+```xml
+<Button ToolTip="Save my documents">
+    <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Save}"/>
+</Button>
+```
+
+![](button-with-icon-only.png)
+
+For more information about *ui:FontIcon*, please [click here](../media/icon-elements#FontIcon)
+
+### A button with icon and text
+
+If you want both icon and text, the best way is to use **ui:SimpleStackPanel**. With the following example, you'll get a button with both icon and text.
+
+```xml
+<Button>
+    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+        <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Save}"/>
+        <TextBlock Text="Save"/>
+    </ui:SimpleStackPanel>
+</Button>
+```
+
+![](a-button-with-icon-and-text.png)
+
+For more information about *ui:SimpleStackPanel*, please [click here](../layout/simple-stack-panel#FontIcon)
+
+### Accent button
+
+Accent buttons are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
+
+To apply accent style to you button, you need to set the **Style** property to `{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}`.
+
+```xml
+<Button Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}"/>
+```
+
+Since a accent button is usually the primary action of the whole window, it's better to allow triggering its click event with pressing **Enter** key, which is by setting **IsDefault** property to `True`.
+
+The complete code should look like this:
+
+```xml
+<Button Content="Accent button" Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" IsDefault="True"/>
+```
+
+![](accent-button.png)
+
+## Customize
+
+### Elevation
+
+The button control comes with an elevation border effect by default. You can use the `ui:ElevationBorder` to customize its elevation.
+
+See more at: ____
+
+## Related
+
+### Styles
+
+There are two built-in styles for Button control:
+
+- **DefaultButtonStyle**: The default style for button, you can access it with `ui:ThemeKeys.DefaultButtonStyleKey`.
+
+- **AccentButtonStyle**: The accent style for button, you can access it with `ui:ThemeKeys.AccentButtonStyleKey`.
+
+### Similar controls
+
+- [**DropDownButton**](./dropdown-button): A button that has a portable Flyout to open when clicked, with a chveron arrow (if you want).
+
+- [**ToggleButton**](./dropdown-button): A button that can be switched between two states like a CheckBox.
+
+- [**SplitButton**](./split-button): A two-part button that displays a flyout when its secondary part is clicked.
+
+- [**HyperlinkButton**](./hyperlink-button): A button that appears as hyperlink text, and can navigate to a URI or handle a Click event.
+
+- [**RepeatButton**](./repeat-button): A button that raises its Click event repeatedly from the time it's pressed until it's released.
+
+
+## See also
+
+- [**Microsoft Learn: **System.Windows.Controls.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
