@@ -4,16 +4,16 @@ description: A control that responds to user input and raises a Click event.
 
 # Button
 
-- **Class**: [System.Windows.Controls](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls)[.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+Buttons allow users to take actions, and make choices, with a single tap, which reacts to user input from a mouse, keyboard, stylus, or other input device and raises a Click event. 
 
-- **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object?view=windowsdesktop-8.0) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control?view=windowsdesktop-8.0) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol?view=windowsdesktop-8.0) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase?view=windowsdesktop-8.0) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+- Class: [System.Windows.Controls](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls)[.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
 
-Buttons allow users to take actions, and make choices, with a single tap.
+- Inheritance: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
 
-The main purpose of a **Button** is to make something happen when a user clicks it. There are two ways you can make something happen:
+The main purpose of a Button is to make something happen when a user clicks it. There are two ways you can make something happen:
 
-- Handle the **Click** event.
-- Bind the **Command** property to an ICommand implementation that describes the command logic.
+- Handle the Click event.
+- Bind the Command property to an ICommand implementation that describes the command logic.
 
 
 ## Examples
@@ -22,7 +22,7 @@ The following examples show the common usage of Button control.
 
 ### A basic button
 
-By using the **Button** class, you can create a button. You can use **Content** property to add a content, and use **Click** event to handle when it's clicked.
+By using the Button class, you can create a button. You can use Content property to add a content, and use Click event to handle when it's clicked.
 
 ```xml
 <Button Content="Click me" Click="Button_Click"/>
@@ -54,7 +54,7 @@ For more information about *ui:FontIcon*, please [click here](../media/icon-elem
 
 ### A button with icon and text
 
-If you want both icon and text, the best way is to use **ui:SimpleStackPanel**. With the following example, you'll get a button with both icon and text.
+If you want both icon and text, the best way is to use ui:SimpleStackPanel. With the following example, you'll get a button with both icon and text.
 
 ```xml
 <Button>
@@ -73,13 +73,13 @@ For more information about *ui:SimpleStackPanel*, please [click here](../layout/
 
 Accent buttons are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
-To apply accent style to you button, you need to set the **Style** property to `{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}`.
+To apply accent style to you button, you need to set the Style property to `{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}`.
 
 ```xml
 <Button Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}"/>
 ```
 
-Since a accent button is usually the primary action of the whole window, it's better to allow triggering its click event with pressing **Enter** key, which is by setting **IsDefault** property to `True`.
+Since a accent button is usually the primary action of the whole window, it's better to allow triggering its click event with pressing Enter key, which is by setting IsDefault property to `True`.
 
 The complete code should look like this:
 
@@ -89,7 +89,7 @@ The complete code should look like this:
 
 ![](accent-button.png)
 
-## Customize
+## Remarks
 
 ### Elevation
 
@@ -97,29 +97,30 @@ The button control comes with an elevation border effect by default. You can use
 
 See more at: ____
 
-## Related
-
 ### Styles
 
 There are two built-in styles for Button control:
 
-- **DefaultButtonStyle**: The default style for button, you can access it with `ui:ThemeKeys.DefaultButtonStyleKey`.
+- DefaultButtonStyle: The default style for button, you can access it with `ui:ThemeKeys.DefaultButtonStyleKey`.
 
-- **AccentButtonStyle**: The accent style for button, you can access it with `ui:ThemeKeys.AccentButtonStyleKey`.
-
-### Similar controls
-
-- [**DropDownButton**](./dropdown-button): A button that has a portable Flyout to open when clicked, with a chveron arrow (if you want).
-
-- [**ToggleButton**](./dropdown-button): A button that can be switched between two states like a CheckBox.
-
-- [**SplitButton**](./split-button): A two-part button that displays a flyout when its secondary part is clicked.
-
-- [**HyperlinkButton**](./hyperlink-button): A button that appears as hyperlink text, and can navigate to a URI or handle a Click event.
-
-- [**RepeatButton**](./repeat-button): A button that raises its Click event repeatedly from the time it's pressed until it's released.
-
+- AccentButtonStyle: The accent style for button, you can access it with `ui:ThemeKeys.AccentButtonStyleKey`.
 
 ## See also
 
-- [**Microsoft Learn: **System.Windows.Controls.Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+### Microsoft Learn
+
+- [Button Class](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+
+- [Button - WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/button)
+
+### Related controls
+
+- [DropDownButton](./dropdown-button)
+
+- [ToggleButton](./toggle-button)
+
+- [SplitButton](./split-button)
+
+- [HyperlinkButton](./hyperlink-button)
+
+- [RepeatButton](./repeat-button)
