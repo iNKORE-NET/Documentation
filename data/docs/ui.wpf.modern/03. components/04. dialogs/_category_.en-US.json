@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Dialogs & Flyouts",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Dialogs and flyouts are transient UI elements that appear when something happens that requires notification, approval, or additional information from the user."
     }
 }
