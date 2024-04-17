@@ -80,8 +80,6 @@ The default style of TabControl comes with a close button that you can use for r
 
 There's also a add tab button that you can use for creating new tabs. You can use **ui:TabControlHelper.AddTabButtonCommand** to handle the click of the add button.
 
-Sometimes you may want the close button not to appear in your TabControl. You can do this in 2 ways:
-
 If you want to remove the close button for the whole TabControl, you can apply **ui:TabControlHelper.IsAddTabButtonVisible** on your TabControl. This will remove both the close buttons and add tab button.
 
 ```xml
@@ -209,7 +207,7 @@ You can add icons for a Pivot tab item using *** as well. However, we recommend 
 
 ![](pivot-with-icon.png)
 
-:::warn
+:::warning
 
 This feature is only available for version **0.9.28** or higher. If you have set the **ui:TabItemHelper.Icon** property and find out the icon not appearing, please consider upgrading the library version.
 
