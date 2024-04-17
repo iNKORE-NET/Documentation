@@ -177,7 +177,7 @@ Also, if you want to add headers to Pivot styled TabControl, please don't use `u
 
 ### Pivot with icons
 
-You can add icons for a Pivot tab item using *** as well. However, we recommend you adjust the icon's size since the Pivot header is larger, the recommended value is `20` or `24`.
+You can add icons for a Pivot tab item using **ui:TabItemHelper.Icon** as well. However, we recommend you adjust the icon's size since the Pivot header is larger, the recommended value is `20` or `24`.
 
 ```xml
 <TabControl Style="{StaticResource {x:Static ui:ThemeKeys.TabControlPivotStyleKey}}" >
@@ -229,11 +229,17 @@ Some key differences between the NavigationView and Pivot are listed here:
 
 ### Styles
 
-There are two built-in styles for Button control:
+There are two built-in styles for TabControl control:
 
 - DefaultTabControlStyle: The default style for TabControl, you can access it with `ui:ThemeKeys.DefaultTabControlStyleKey`.
 
 - TabControlPivotStyle: The Pivot style for TabControl, you can access it with `ui:ThemeKeys.TabControlPivotStyleKey`.
+
+There are two built-in styles for TabItem control:
+
+- DefaultTabItemStyle: The default style for TabItem, you can access it with `ui:ThemeKeys.DefaultTabItemStyleKey`.
+
+- TabItemPivotStyle: The Pivot style for TabControl, you can access it with `ui:ThemeKeys.TabItemPivotStyleKey`.
 
 
 ## See also
