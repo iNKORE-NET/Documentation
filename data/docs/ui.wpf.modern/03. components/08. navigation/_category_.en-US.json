@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Navigation",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Discusses controls and features designed to improve the user’s ability to navigate through the application, ensuring users can easily move between different parts of the application without confusion."
     }
 }

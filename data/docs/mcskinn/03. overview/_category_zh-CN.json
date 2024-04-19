@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "概览"
+        "title": "概览",
+        "description": "Add description!"
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }

@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "Question"
+        "title": "Questions",
+        "description": "The FAQ section addresses common questions and concerns that users might encounter while using mcskinn. It offers clear, concise answers and solutions, aiding users in troubleshooting and better understanding the software’s capabilities and limitations."
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }

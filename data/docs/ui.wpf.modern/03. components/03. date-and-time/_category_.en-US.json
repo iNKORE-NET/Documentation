@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Date & Time",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Date and time controls give you standard, localized ways to let a user view and set date and time values in your app. This article provides design guidelines and helps you pick the right control."
     }
 }

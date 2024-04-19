@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "Make a Minecraft skin"
+        "title": "Tutorial: Make a Minecraft skin",
+        "description": "Add description!"
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }

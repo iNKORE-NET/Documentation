@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Status & Info",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Focuses on controls that provide users with continuous feedback regarding the application’s operations or status, such as progress bars and informational messages. These controls are key to keeping the user informed about ongoing processes and the overall state of the application."
     }
 }

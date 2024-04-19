@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "Knowledge"
+        "title": "Knowledge",
+        "description": "The Knowledge section of the mcskinn documentation delves into the specifics of Minecraft skin creation and customization. It offers a detailed exploration of skin textures, formats, and the tools used to design and edit them. This section also provides insights into how skins can enhance player experience and personal expression in the game, equipping users with the necessary information to create unique and personalized skins."
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }

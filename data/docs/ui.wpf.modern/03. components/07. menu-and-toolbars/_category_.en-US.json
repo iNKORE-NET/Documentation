@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Menu & Toolbars",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Discusses the implementation of navigational and functional controls that make accessing application features straightforward and intuitive. These controls are crucial for structuring user interactions through menus and toolbars."
     }
 }

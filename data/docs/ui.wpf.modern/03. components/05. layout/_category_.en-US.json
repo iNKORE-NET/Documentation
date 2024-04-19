@@ -1,8 +1,8 @@
 {
-  "label": "Components",
+  "label": "Layouts",
   "link": 
     {
         "type": "generated-index",
-        "description": "All modern control available so far are listed here."
+        "description": "Provides a variety of controls that assist in organizing visual elements efficiently across the application interface. These tools are essential for maintaining a clean and accessible user experience, facilitating the logical grouping and display of content."
     }
 }

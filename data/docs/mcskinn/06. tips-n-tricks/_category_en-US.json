@@ -3,10 +3,11 @@
     "link": 
     {
         "type": "generated-index",
-        "title": "Tips & Tricks"
+        "title": "Tips & Tricks",
+        "description": "The Tips and Tricks section provides users with practical advice and lesser-known techniques to maximize their use of MCSkinn. From shortcuts and efficiency hacks to creative uses of features, this section helps users explore the full potential of the tool."
     },
     "customProps": 
     {
-        "description": "Add description!"
+        
     }
 }
