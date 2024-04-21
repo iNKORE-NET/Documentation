@@ -50,7 +50,7 @@ Remember, please use correct heading structure for steps and other scenarios. Fo
     安装完 iNKORE Hub 后，您的开始菜单中应该会有一个类似这样的快捷方式。
 
     1.2 打开 iNKORE Hub 并下载 MCSkinn
-    在开始菜单的程序中点击 “iNKORE Hub”。初始化后，点击左侧面板中的“产品”选
+    在开始菜单的程序中点击 "iNKORE Hub"。初始化后，点击左侧面板中的"产品"选
 
         如果弹出任何错误消息，您应该检查您的网络连接、防病毒软件和系统环境。如果这些方法都无效，请联系支持（studios@inkore.net），我们很乐意帮助。
 
@@ -70,7 +70,7 @@ Instead, this looks better:
 
 ### 打开 iNKORE Hub 并下载 MCSkinn
 
-在开始菜单的程序中点击 “iNKORE Hub”。初始化后，点击左侧面板中的“产品”选
+在开始菜单的程序中点击 "iNKORE Hub"。初始化后，点击左侧面板中的"产品"选
 如果弹出任何错误消息，您应该检查您的
 
 ## Step 2: Start using MCSkinn
