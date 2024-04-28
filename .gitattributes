@@ -1,0 +1,4 @@
+* text=auto eol=crlf
+
+# Make this repository file name case-sensitive
+* -text
