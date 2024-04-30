@@ -88,9 +88,9 @@ Before using MCSkinn, you need a directory representing your skin library. It ca
 
 For some language-specified documents (e.g. Chinese), it's essential to use spaces between [Chinese] and [English/letters/numbers/minor-symbols]. 
 
-### Always use English symbols
+### Always use English symbols (with exceptions)
 
-All punctuation marks should be half-width except for commas, periods, question marks, and colons. All brackets should also be half-width, with a space on each side outside the brackets. (Slashes may not have spaces around them).
+All punctuation marks should be half-width **except for commas, periods, question marks, and colons**. All brackets should also be half-width, with a space on each side outside the brackets. (Slashes may not have spaces around them).
 
 For example, avoid writing like this:
 
