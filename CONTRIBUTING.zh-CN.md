@@ -28,7 +28,7 @@
 
 示例：`index.en-US.mdx`，`index.zh-CN.mdx`
 
--   **图像命名**：文章中的图片应当和 **index.{语言代号}.mdx** 存在同一目录内，并且以简短的 kebab 形式命名，比如 `create-a-new-project.png`。~~对于屏幕截图和其他较小的图片，请使用 PNG 格式，对于较大的图片，请使用 JPG 或 JPEG 格式~~请上传 PNG 或 JPEG 格式，对于其对应图片的大小无所谓。
+-   **图像命名**：文章中的图片应当和 **index.{语言代号}.mdx** 存在同一目录内，并且以简短的 kebab 形式命名，比如 `create-a-new-project.png`。对于屏幕截图和其他较小的图片，请使用 PNG 格式，对于较大的图片，请使用 JPG 或 JPEG 格式。
 
     示例：`create-new-project.png`，`mountain-view.jpg`
 
