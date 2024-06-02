@@ -1,4 +1,4 @@
-# 🧾 Documentation (WIP 🗿)
+# 🧾 Documentation
 
 -   We're still working hard on this. It will be available [**docs.inkore.net**](https://docs.inkore.net) soon (don't click now).
 
