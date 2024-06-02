@@ -28,7 +28,7 @@ Each article has its designated folder, represented by a two-digit number follow
 
 Examples: `index.en-US.mdx`, `index.zh-CN.mdx`
 
-- **Image Naming**: Images in articles should be located in the same directory as **index.{language_code}.mdx** and named in short kebab case, such as `create-a-new-project.png`.
+- **Image Naming**: Images in articles should be located in the same directory as **index.{language_code}.mdx** and named in short kebab case, such as `create-a-new-project.png`. The choice between PNG and JPEG formats hinges on the nature of the image – with PNG preferred for crisp, detailed images, screenshots; and JPEG suited for larger, less detailed visuals.
 
     Examples: `create-new-project.png`, `mountain-view.jpg`
 
