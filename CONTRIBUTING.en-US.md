@@ -104,14 +104,14 @@ The rules above applies to all documents and all locales, no matter what languag
 
 For example, avoid writing like this:
 
-```
+```md
 2024.5.2 4:08 | 2nd May 2024 | 2024年5月2日下午4点8分
 我买了34个苹果（是红的）和1只鸡【不知道是公鸡 / 还是 / 母鸡】。
 ```
 
 Instead, write like this for better readability:
 
-```
+```md
 05/02/2024 16:08 | May 2nd, 2024 | 5 月 2 日 2024 年，16:08
 我买了 34 个苹果 (是红的) 和 1 只鸡 [不知道是公鸡/还是/母鸡]。
 ```
