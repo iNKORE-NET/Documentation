@@ -116,60 +116,57 @@ In some cases, you may want the background to be clear, without any colors anf f
 <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.NavigationViewContentBackgroundKey}" Color="Transparent"/>
 <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ExpanderHeaderBorderBrushKey}" Color="Transparent"/>
 <Thickness x:Key="NavigationViewContentGridBorderThickness">0,0,0,0</Thickness>
-
 ```
 
 The full code should look like this:
 
 ```xml
 <ui:NavigationView IsPaneOpen="False">
-<FrameworkElement.Resources>
-    <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.NavigationViewContentBackgroundKey}" Color="Transparent"/>
-    <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ExpanderHeaderBorderBrushKey}" Color="Transparent"/>
-    <Thickness x:Key="NavigationViewContentGridBorderThickness">0,0,0,0</Thickness>
+    <FrameworkElement.Resources>
+        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.NavigationViewContentBackgroundKey}" Color="Transparent"/>
+        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ExpanderHeaderBorderBrushKey}" Color="Transparent"/>
+        <Thickness x:Key="NavigationViewContentGridBorderThickness">0,0,0,0</Thickness>
+    </FrameworkElement.Resources>
 
-</FrameworkElement.Resources>
+    <ui:NavigationView.MenuItems>
+        <ui:NavigationViewItem Content="Home">
+            <ui:NavigationViewItem.Icon>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}"/>
+            </ui:NavigationViewItem.Icon>
+        </ui:NavigationViewItem>
 
-<ui:NavigationView.MenuItems>
-    <ui:NavigationViewItem Content="Home">
-        <ui:NavigationViewItem.Icon>
-            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Home}"/>
-        </ui:NavigationViewItem.Icon>
-    </ui:NavigationViewItem>
+        <ui:NavigationViewItem Content="Apps">
+            <ui:NavigationViewItem.Icon>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.OEM}"/>
+            </ui:NavigationViewItem.Icon>
+        </ui:NavigationViewItem>
 
-    <ui:NavigationViewItem Content="Apps">
-        <ui:NavigationViewItem.Icon>
-            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.OEM}"/>
-        </ui:NavigationViewItem.Icon>
-    </ui:NavigationViewItem>
+        <ui:NavigationViewItem Content="Games">
+            <ui:NavigationViewItem.Icon>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Game}"/>
+            </ui:NavigationViewItem.Icon>
+        </ui:NavigationViewItem>
 
-    <ui:NavigationViewItem Content="Games">
-        <ui:NavigationViewItem.Icon>
-            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Game}"/>
-        </ui:NavigationViewItem.Icon>
-    </ui:NavigationViewItem>
+    </ui:NavigationView.MenuItems>
 
-</ui:NavigationView.MenuItems>
+    <ui:NavigationView.FooterMenuItems>
 
-<ui:NavigationView.FooterMenuItems>
+        <ui:NavigationViewItem Content="Settings">
+            <ui:NavigationViewItem.Icon>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}"/>
+            </ui:NavigationViewItem.Icon>
+        </ui:NavigationViewItem>
+        <ui:NavigationViewItem Content="About">
+            <ui:NavigationViewItem.Icon>
+                <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}"/>
+            </ui:NavigationViewItem.Icon>
+        </ui:NavigationViewItem>
 
-    <ui:NavigationViewItem Content="Settings">
-        <ui:NavigationViewItem.Icon>
-            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Settings}"/>
-        </ui:NavigationViewItem.Icon>
-    </ui:NavigationViewItem>
-    <ui:NavigationViewItem Content="About">
-        <ui:NavigationViewItem.Icon>
-            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Info}"/>
-        </ui:NavigationViewItem.Icon>
-    </ui:NavigationViewItem>
+    </ui:NavigationView.FooterMenuItems>
 
-</ui:NavigationView.FooterMenuItems>
-
-<Border>
-    <TextBlock Text="Content Area" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-</Border>
-
+    <Border>
+        <TextBlock Text="Content Area" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
 </ui:NavigationView>
 ```
 
