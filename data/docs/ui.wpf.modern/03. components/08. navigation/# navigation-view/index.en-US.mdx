@@ -1,5 +1,5 @@
 ---
-description: Common vertical layout for top-level areas of your app via a collapsible navigation menu.
+description: "Common vertical layout for top-level areas of your app via a collapsible navigation menu."
 ---
 
 # NavigationView
@@ -10,7 +10,7 @@ The navigation view control provides a common vertical layout for top-level area
 
 - **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [NavigationView](.)
 
-# Examples
+## Examples
 
 This example shows how to create a simple navigation view.
 
@@ -55,7 +55,7 @@ If you're using left compact layout, we recommend you set the property **IsPaneO
 
 :::
 
-## Add Footer Items
+### Add Footer Items
 
 You can use **ui:NavigationView.FooterMenuItems** property to add items to the footer (bottom part) of the NavigationView.
 
@@ -105,7 +105,7 @@ You can use **ui:NavigationView.FooterMenuItems** property to add items to the f
 
 ![](footer-items.png)
 
-## Clear background
+### Clear background
 
 According to the Fluent Design guidelines, the NavigationView control comes with a background layer in the content area as following:
 
@@ -178,15 +178,15 @@ Then you should see there's no more fill in the content area:
 
 ![](clear-background.png)
 
-## Navigate through pages
+### Navigate through pages
 
 The NavigationView usually helps the user go through different pages. To make this, some behinded code and a Frame will be used.
 
 For more information, you can try the [example project](https://github.com/iNKORE-NET/UI.WPF.Modern/tree/main/samples/NavigationViewExample).
 
-# Remarks
+## Remarks
 
-## Is this the right control?
+### Is this the right control?
 
 NavigationView is an adaptive navigation control that works well for:
 
@@ -194,7 +194,7 @@ NavigationView is an adaptive navigation control that works well for:
 - Preserving screen real estate on smaller windows.
 - Organizing access to many navigation categories.
 
-## IsFooterSeparatorVisible
+### IsFooterSeparatorVisible
 
 Owning both MenuItems and FooterMenus, when the height is not enough for all the items, there will be a scroll bar to display them, and you might also see a separator between MenuItems and FooterMenuItems.
 
@@ -208,11 +208,11 @@ You can use the property **IsFooterSeparatorVisible** to control whether this se
 
 The default value is `null`.
 
-## Display modes
+### Display modes
 
 You can use the PaneDisplayMode property to configure different navigation styles, or display modes, for the NavigationView.
 
-### Top
+#### Top
 
 The pane is positioned above the content.
 `PaneDisplayMode="Top"`
@@ -227,7 +227,7 @@ We recommend top navigation when:
 - You want more space for your app content.
 - Icons cannot clearly describe your app's navigation categories.
 
-### Left
+#### Left
 
 The pane is expanded and positioned to the left of the content.
 `PaneDisplayMode="Left"`
@@ -239,33 +239,33 @@ We recommend left navigation when:
 - You have 5-10 equally important top-level navigation categories.
 - You want navigation categories to be very prominent, with less space for other app content.
 
-### LeftCompact
+#### LeftCompact
 
 The pane shows only icons until opened and is positioned to the left of the content. When opened, the pane overlays the content.
 PaneDisplayMode="LeftCompact"
 
 ![Example of compact left navigation pane](ms-displaymode-leftcompact.png)
 
-### LeftMinimal
+#### LeftMinimal
 
 Only the menu button is shown until the pane is opened. When opened, the pane overlays the left side of the content.
 PaneDisplayMode="LeftMinimal"
 
 ![Example of minimal left navigation pane](ms-displaymode-leftminimal.png)
 
-### Auto
+#### Auto
 
 By default, PaneDisplayMode is set to Auto. In Auto mode, the NavigationView adapts between LeftMinimal when the window is narrow, to LeftCompact, and then Left as the window gets wider. For more info, see the adaptive behavior section.
 
 ![NavigationView default adaptive behavior](ms-displaymode-auto.png)
 
-## Details & guidelines
+### Details & guidelines
 
 There are more detailed and useful information on [this page](https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview). If you want to put NavigationView into good use, you should really read this.
 
-# See also
+## See also
 
-## Microsoft Learn
+### Microsoft Learn
 
 - [NavigationView - Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/controls/navigationview)
 
@@ -273,7 +273,7 @@ There are more detailed and useful information on [this page](https://learn.micr
 
 - [Navigation basics - Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/basics/navigation-basics)
 
-## Related controls
+### Related controls
 
 - [Frame](./frame)
 
