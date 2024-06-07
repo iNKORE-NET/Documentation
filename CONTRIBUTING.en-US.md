@@ -28,7 +28,7 @@ Each article has its designated folder, represented by a two-digit number follow
 
 Examples: `index.en-US.mdx`, `index.zh-CN.mdx`
 
-- **Image Naming**: Images in articles should be located in the same directory as **index.{language_code}.mdx** and named in short kebab case, such as `create-a-new-project.png`.
+- **Image Naming**: Images in articles should be located in the same directory as **index.{language_code}.mdx** and named in short kebab case, such as `create-a-new-project.png`. The choice between PNG and JPEG formats hinges on the nature of the image – with PNG preferred for crisp, detailed images, screenshots; and JPEG suited for larger, less detailed visuals.
 
     Examples: `create-new-project.png`, `mountain-view.jpg`
 
@@ -92,16 +92,28 @@ For some language-specified documents (e.g. Chinese), it's essential to use spac
 
 All punctuation marks should be half-width **except for commas, periods, question marks, and colons**. All brackets should also be half-width, with a space on each side outside the brackets. (Slashes may not have spaces around them).
 
+### Date and Time Format
+
+For short date, please use `MM/dd/yyyy` format (e.g `05/02/2024`). for long date, it should be like `September 20th, 2023`.
+
+For time, always follow `HH:mm` or `HH:mm:ss` rule (e.g. `16:20`, `08:06:45`). **The military time** (24-hour clock) will always be used.
+
+The rules above applies to all documents and all locales, no matter what language the document is. 
+
+### Example
+
 For example, avoid writing like this:
 
 ```
-2024年5月2日，我买了34个苹果（是红的）和1只鸡【不知道是公鸡 / 还是 / 母鸡】。
+2024.5.2 4:08 | 2nd May 2024 | 2024年5月2日下午4点8分
+我买了34个苹果（是红的）和1只鸡【不知道是公鸡 / 还是 / 母鸡】。
 ```
 
 Instead, write like this for better readability:
 
 ```
-On May 2, 2024, I bought 34 apples (red) and 1 chicken [not sure if it's a rooster/or a/hen].
+05/02/2024 16:08 | May 2nd, 2024 | 5 月 2 日 2024 年，16:08
+我买了 34 个苹果 (是红的) 和 1 只鸡 [不知道是公鸡/还是/母鸡]。
 ```
 
 ## Conclusion
