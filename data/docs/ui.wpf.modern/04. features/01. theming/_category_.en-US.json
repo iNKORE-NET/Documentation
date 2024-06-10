@@ -1,8 +1,8 @@
 {
-  "label": "Features",
+  "label": "Theming",
   "link": 
     {
         "type": "generated-index",
-        "description": "Some important functions of this library that empowers you app and give you more customizations."
+        "description": "The theme specifies the color of the components, darkness of the surfaces, level of shadow, appropriate opacity of ink elements, etc."
     }
 }
