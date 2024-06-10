@@ -3,13 +3,13 @@ description: "Windows apps can use a light or dark application theme. The theme 
 title: "Theme Schemes"
 ---
 
-# Theme Schemes (theme mode)
+# Theme Schemes (aka. theme mode)
 
 Windows apps can use a light or dark application theme. The theme affects the colors of the app's background, text, icons, and common controls.
 
-:::info
+:::note
 
-This article is about theme modes (light/dark). If you want to know about accent colors (aka primary color), please see [Accent Color](./accent-color).
+This article is about theme modes (light/dark). If you want to know about accent colors (aka primary color), please see [Theming / Accent Color](./accent-color).
 
 :::
 
@@ -41,7 +41,7 @@ When you use a global **ThemeResources**, you may find out that there's a proper
 RequestedTheme="Dark"
 ```
 
-```xml
+```xml title="App.xaml"
 <Application x:Class="WpfApp1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -152,6 +152,12 @@ There are a few scenarios that the app cannot follow the system settings, mostly
 :::
 
 ## See also
+
+### Related articles
+
+- [Theming / Accent color](./accent-color)
+
+### Microsoft Learn
 
 - [Color in Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/style/color)
 
