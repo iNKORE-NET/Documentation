@@ -2,7 +2,7 @@
 name: Document Content | Suggestion
 about: Suggest an idea for one or more documents (Not the website system!).
 title: "[DOC | Suggestion] Title"
-labels: documentation, enhancement
+labels: for-document, enhancement
 assignees: ''
 
 ---
