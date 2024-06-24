@@ -2,7 +2,7 @@
 name: Website System | Feature request
 about: Suggest an idea for the website itself (Not the documentation!)
 title: ''
-labels: 'for-document, enhancement'
+labels: 'for-website, enhancement'
 assignees: ''
 
 ---
