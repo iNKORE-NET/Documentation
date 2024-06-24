@@ -2,7 +2,7 @@
 name: Document Content | Problem report
 about: There's a problem in the documents. (Not the website system!)
 title: "[DOC | Bug] Title"
-labels: documentation
+labels: documentation, bug
 assignees: ''
 
 ---
