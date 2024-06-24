@@ -2,7 +2,7 @@
 name: Website System | Bug report
 about: There's someting wrong with the website itself (Not the documentation!).
 title: "[Site | Bug] Title"
-labels: bug, for-document
+labels: bug, for-website
 assignees: ''
 
 ---
