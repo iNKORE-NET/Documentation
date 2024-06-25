@@ -37,13 +37,13 @@ Then add some content to the pages. For example, add a `TextBlock` to each page 
 Your **Page1** should look like this:
 
 ```xml title="Page1.xaml"
-// highlight-next-line
+# highlight-next-line
 <ui:Page x:Class="WpfApp1.Pages.Page1"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-// highlight-next-line
+# highlight-next-line
       xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       mc:Ignorable="d" 
       d:DesignHeight="360" d:DesignWidth="640"
@@ -55,14 +55,14 @@ Your **Page1** should look like this:
                 RadiusX="8" RadiusY="8" StrokeDashArray="4 2"/>
         <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
     </Grid>
-// highlight-next-line
+# highlight-next-line
 </ui:Page>
 
 ```
 
 ```csharp title="Page1.xaml.cs"
 using iNKORE.UI.WPF.Modern.Controls;
-// highlight-next-line
+# highlight-next-line
 using Page = iNKORE.UI.WPF.Modern.Controls.Page;
 
 namespace WpfApp1.Pages
@@ -80,14 +80,14 @@ namespace WpfApp1.Pages
 And your **Page2** should look like this:
 
 ```xml title="Page2.xaml"
-// highlight-next-line
+# highlight-next-line
 <ui:Page x:Class="ExamplePhotoTaker.Pages.Page2"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExamplePhotoTaker.Pages"
-// highlight-next-line
+# highlight-next-line
       xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
       mc:Ignorable="d" 
       d:DesignHeight="360" d:DesignWidth="640"
@@ -99,13 +99,13 @@ And your **Page2** should look like this:
                 RadiusX="8" RadiusY="8" StrokeDashArray="4 2"/>
         <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
     </Grid>
-// highlight-next-line
+# highlight-next-line
 </ui:Page>
 ```
 
 ```csharp title="Page2.xaml.cs"
 using iNKORE.UI.WPF.Modern.Controls;
-// highlight-next-line
+# highlight-next-line
 using Page = iNKORE.UI.WPF.Modern.Controls.Page;
 
 namespace WpfApp1.Pages
@@ -134,7 +134,7 @@ Now, create a new window and add a Frame control to it. Add a few buttons to nav
         <Button x:Name="Button_NavigateToPage2" Content="To Page 2" Click="Button_NavigateToPage2_Click"/>
     </ui:SimpleStackPanel>
 
-// highlight-next-line
+# highlight-next-line
     <ui:Frame x:Name="Frame_Main" Margin="10" Grid.Row="1" 
                 BorderBrush="Gray" BorderThickness="2,2,2,2"/>
 </Grid>
@@ -159,6 +159,286 @@ Clicking the buttons will navigate to the corresponding pages like this:
 
 ![Navigated to Page 1](navigated-to-page-1.png)
 
-### Basic usage
+:::warning
 
+We strongly NOT recommend you to use the `Navigate(Type sourcePageType)` method to navigate between pages, it's not recommended to use it in the modern UI development. Instead, we recommend you to use the `Navigate(object content)` method which we provided in the Frame control.
 
+For example, we may change the code from this:
+
+```csharp
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+    Frame_Main.Navigate(typeof(Page1));
+}
+```
+
+to this:
+
+```csharp
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+    Frame_Main.Navigate(new Page1());
+}
+```
+
+or this:
+
+```csharp
+Page1 Page_1 = new Page1();
+
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+    Frame_Main.Navigate(Page1);
+}
+```
+
+:::
+
+### Change transition style
+
+On the **Navigate()** method, there are a few overloads that allow you to pass a transition style. The following example shows how to apply the Drill-in transition style.
+
+```csharp
+using iNKORE.UI.WPF.Modern.Media.Animation;
+
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+# highlight-next-line
+    Frame_Main.Navigate(Page_1, new DrillInNavigationTransitionInfo());
+}
+```
+
+### Disable keyboard navigation
+
+Since the Frame has a built-in keyboard navigation, you may found out that you can use `Backspace`, `Page Down` and `Page Up` keys to navigate through the pages without your code control. Mostly this is not expected since the user would misact and back to another page that you're not expected, so we recommend you use the following way to disable it.
+
+First add a handler to the `Navigating` event of the Frame control:
+
+```xml
+<ui:Frame x:Name="Frame_Main" Navigating="Frame_Main_Navigating"/>
+```
+
+Create your own Navigate method and block the navigation if it's not expected like this:
+
+```csharp
+WeakReference __Frame_Main_NavigatingTarget = new WeakReference(null);
+private void Frame_Main_Navigating(object sender, NavigatingCancelEventArgs e)
+{
+    if (e.Content != __Frame_Main_NavigatingTarget.Target)
+    {
+        e.Cancel = true;
+    }
+}
+
+public void NavigateTo(object content, object? extraData = null, NavigationTransitionInfo? infoOverride = null)
+{
+    __Frame_Main_NavigatingTarget.Target = content;
+    Frame_Main.Navigate(content, extraData, infoOverride);
+}
+```
+
+Then change your navigation code to use the new **NavigateTo()** method:
+
+```csharp
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+    // Don't use `Frame_Main.Navigate(Page_1) any more, it won't work.`
+# highlight-next-line
+    NavigateTo(Page_1);
+}
+
+private void Button_NavigateToPage2_Click(object sender, RoutedEventArgs e)
+{
+# highlight-next-line
+    NavigateTo(Page_2);
+}
+```
+
+Then try to use the keyboard to navigate through the pages, you'll find out that it's not working any more.
+
+## Members
+
+Here're the commonly used members of the Frame control. For a complete list of members, please check the [API definition](COMING_SOON).
+
+### Navigate
+
+The **Navigate()** method navigates to the specified content. There are a few overloads that allow you to pass a transition style.
+
+These are the extra overloads which we added for the Frame control:
+
+```csharp
+/// <summary>
+/// Causes the Frame to load content represented by the specified Page.
+/// </summary>
+/// <param name="sourcePageType">The page to navigate to, specified as a type reference to its partial class type.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(Type sourcePageType);
+
+/// <summary>
+/// Causes the Frame to load content represented by the specified Page, also passing
+/// a parameter to be interpreted by the target of the navigation.
+/// </summary>
+/// <param name="sourcePageType">The page to navigate to, specified as a type reference to its partial class type.</param>
+/// <param name="parameter">The navigation parameter to pass to the target page.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(Type sourcePageType, object parameter);
+
+/// <summary>
+/// Causes the Frame to load content represented by the specified Page -derived data
+/// type, also passing a parameter to be interpreted by the target of the navigation,
+/// and a value indicating the animated transition to use.
+/// </summary>
+/// <param name="sourcePageType">The page to navigate to, specified as a type reference to its partial class type.</param>
+/// <param name="parameter">The navigation parameter to pass to the target page.</param>
+/// <param name="infoOverride">Info about the animated transition.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(Type sourcePageType, object parameter, NavigationTransitionInfo infoOverride);
+
+/// <summary>
+/// Navigates asynchronously to content that is contained by an object.
+/// </summary>
+/// <param name="content">An System.Object that contains the content to navigate to.</param>
+/// <param name="infoOverride">Info about the animated transition.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(object content, NavigationTransitionInfo infoOverride);
+
+/// <summary>
+/// Navigates asynchronously to content that is contained by an object, and passes
+/// an object that contains data to be used for processing during navigation.
+/// </summary>
+/// <param name="content">An System.Object that contains the content to navigate to.</param>
+/// <param name="extraData">A System.Object that contains data to be used for processing during navigation.</param>
+/// <param name="infoOverride">Info about the animated transition.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(object content, object extraData, NavigationTransitionInfo infoOverride);
+
+/// <summary>
+/// Navigates asynchronously to source content located at a uniform resource identifier
+/// (URI), and passes an object that contains data to be used for processing during
+/// navigation, and a value indicating the animated transition to use.
+/// </summary>
+/// <param name="source">A System.Uri object initialized with the URI for the desired content.</param>
+/// <param name="extraData">A System.Object that contains data to be used for processing during navigation.</param>
+/// <param name="infoOverride">Info about the animated transition.</param>
+/// <returns>true if navigation is not canceled; otherwise, false.</returns>
+public bool Navigate(Uri source, object extraData, NavigationTransitionInfo infoOverride);
+```
+
+There're also many overloads presented in the original **Frame.Navigate** method, [click here](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.frame.navigate) to learn more.
+
+### GoBack
+
+The GoBack() method navigates to the most recent item in back navigation history, if a Frame manages its own navigation history.
+
+```csharp
+/// <summary>
+/// Navigates to the most recent item in back navigation history, if a Frame manages
+/// its own navigation history, and specifies the animated transition to use.
+/// </summary>
+/// <param name="transitionInfoOverride">Info about the animated transition to use.</param>
+public void GoBack(NavigationTransitionInfo transitionInfoOverride);
+```
+
+You can call the **GoBack** method with or without the transition info like this:
+
+```csharp
+// Without transitionInfoOverride, default transition will be used.
+Frame_Main.GoBack();
+```
+
+or this:
+
+```csharp
+// With transitionInfoOverride, specified transition will be used.
+Frame_Main.GoBack(new DrillInNavigationTransitionInfo());
+```
+
+## Remarks
+
+### Transitions
+
+Page transitions provide visual feedback about the relationship between pages.
+
+#### Entrance
+
+Page refresh is a combination of a slide up animation and a fade in animation for the incoming content. Use page refresh when the user is taken to the top of a navigational stack, such as navigating between tabs or left-nav items.
+
+The desired feeling is that the user has started over.
+
+![Page refresh](page-refresh.gif)
+
+The page refresh animation is represented by the EntranceNavigationTransitionInfo class.
+
+```csharp
+// Explicitly play the page refresh animation
+myFrame.Navigate(Page_2, null, new EntranceNavigationTransitionInfo());
+```
+
+:::note
+
+A Frame automatically uses NavigationThemeTransition to animate navigation between two pages. By default, the animation is page refresh.
+
+:::
+
+#### Drill
+
+Use drill when users navigate deeper into an app, such as displaying more information after selecting an item.
+
+The desired feeling is that the user has gone deeper into the app.
+
+![Drill](drill.gif)
+
+The drill animation is represented by the DrillInNavigationTransitionInfo class.
+
+```csharp
+// Play the drill in animation
+myFrame.Navigate(Page_2, null, new DrillInNavigationTransitionInfo());
+```
+
+#### Slide
+
+Use slide transition to show that sibling pages appear next to each other. The NavigationView control automatically uses this animation for top nav, but if you are building your own horizontal navigation experience, then you can implement horizontal slide with SlideNavigationTransitionInfo.
+
+The desired feeling is that the user is navigating between pages that are next to each other.
+
+```csharp
+// Navigate to the right, ie. from LeftPage to RightPage
+myFrame.Navigate(RightPage, null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+
+// Navigate to the left, ie. from RightPage to LeftPage
+myFrame.Navigate(LeftPage, null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft });
+
+// Navigate to the bottom, ie. from TopPage to BottomPage
+myFrame.Navigate(BottomPage, null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromBottom });
+```
+
+#### Suppress
+
+To avoid playing any animation during navigation, use SuppressNavigationTransitionInfo in the place of other NavigationTransitionInfo subtypes.
+
+```csharp
+// Suppress the default animation
+myFrame.Navigate(Page2, null, new SuppressNavigationTransitionInfo());
+```
+
+Suppressing the animation is useful when implicit show/hide animations is used.
+
+## See also
+
+### Microsoft Learn
+
+- [Navigation Overview - WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/app-development/navigation-overview)
+
+- [Frame - WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/frame)
+
+- [Page transitions - Windows Apps](https://learn.microsoft.com/en-us/windows/apps/design/motion/page-transitions)
+
+- [Frame Class (WPF)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.frame)
+
+- [Frame Class (WinRT)](https://learn.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.frame)
+
+## Related controls
+
+- [NavigationView](./navigation-view)
+
+- [TabControl](./tab-control)
