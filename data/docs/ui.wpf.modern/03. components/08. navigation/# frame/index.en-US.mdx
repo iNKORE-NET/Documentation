@@ -14,6 +14,8 @@ Using our extended Frame control, you can navigate with Fluent animations, bette
 
 ## Examples
 
+### Navigate through pages
+
 The following example shows how to create a simple Frame control to navigate through a set of pages.
 
 First, create two pages called `Page1.xaml` and `Page2.xaml`. Create a folder named `Pages`, right click the folder, and select **Add** → **New Item**. Select **WPF / Page** and name it `Page1.xaml`. Repeat the process to create `Page2.xaml`.
@@ -30,13 +32,132 @@ xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
 
 Change the root class from Page to `ui:Page`. Go to the code-behind *(e.g. Page1.xaml.cs)*, and change the base class from Page to `iNKORE.UI.WPF.Modern.Controls.Page`.
 
+Then add some content to the pages. For example, add a `TextBlock` to each page to display the page name.
 
+Your **Page1** should look like this:
+
+```xml title="Page1.xaml"
+// highlight-next-line
+<ui:Page x:Class="WpfApp1.Pages.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+// highlight-next-line
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d" 
+      d:DesignHeight="360" d:DesignWidth="640"
+      Foreground="CornflowerBlue"
+      Title="Page 1">
+
+    <Grid>
+        <Rectangle Margin="10" Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ui:Page}, Path=Foreground}" StrokeThickness="2"
+                RadiusX="8" RadiusY="8" StrokeDashArray="4 2"/>
+        <TextBlock Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+    </Grid>
+// highlight-next-line
+</ui:Page>
+
+```
+
+```csharp title="Page1.xaml.cs"
+using iNKORE.UI.WPF.Modern.Controls;
+// highlight-next-line
+using Page = iNKORE.UI.WPF.Modern.Controls.Page;
+
+namespace WpfApp1.Pages
+{
+    public partial class Page1 : Page
+    {
+        public Page1()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+
+And your **Page2** should look like this:
+
+```xml title="Page2.xaml"
+// highlight-next-line
+<ui:Page x:Class="ExamplePhotoTaker.Pages.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ExamplePhotoTaker.Pages"
+// highlight-next-line
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d" 
+      d:DesignHeight="360" d:DesignWidth="640"
+      Foreground="SeaGreen"
+      Title="Page 2">
+
+    <Grid>
+        <Rectangle Margin="10" Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ui:Page}, Path=Foreground}" StrokeThickness="2"
+                RadiusX="8" RadiusY="8" StrokeDashArray="4 2"/>
+        <TextBlock Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+    </Grid>
+// highlight-next-line
+</ui:Page>
+```
+
+```csharp title="Page2.xaml.cs"
+using iNKORE.UI.WPF.Modern.Controls;
+// highlight-next-line
+using Page = iNKORE.UI.WPF.Modern.Controls.Page;
+
+namespace WpfApp1.Pages
+{
+    public partial class Page2 : Page
+    {
+        public Page2()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+
+Now, create a new window and add a Frame control to it. Add a few buttons to navigate between the pages. Use the **Navigate()** method to pass Page to the Frame control.
 
 ```xml
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
 
-Then add some content to the pages. For example, add a `TextBlock` to each page to display the page name
+    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center">
+        <Button x:Name="Button_NavigateToPage1" Content="To Page 1" Click="Button_NavigateToPage1_Click"/>
+        <Button x:Name="Button_NavigateToPage2" Content="To Page 2" Click="Button_NavigateToPage2_Click"/>
+    </ui:SimpleStackPanel>
 
+// highlight-next-line
+    <ui:Frame x:Name="Frame_Main" Margin="10" Grid.Row="1" 
+                BorderBrush="Gray" BorderThickness="2,2,2,2"/>
+</Grid>
+```
 
+```csharp
+Page1 Page_1 = new Page1();
+Page2 Page_2 = new Page2();
+
+private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
+{
+    Frame_Main.Navigate(Page_1);
+}
+
+private void Button_NavigateToPage2_Click(object sender, RoutedEventArgs e)
+{
+    Frame_Main.Navigate(Page_2);
+}
+```
+
+Clicking the buttons will navigate to the corresponding pages like this:
+
+![Navigated to Page 1](navigated-to-page-1.png)
 
 ### Basic usage
 
