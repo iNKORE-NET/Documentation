@@ -62,7 +62,7 @@ If you mind that, then set it to 7.0, though this will make the two files disapp
 :::
 
 
-:::tip ProTip:
+:::tip
 
 Though the **Target OS Version** is set to 10.0, you can set **Supported OS Version** to whatever you want. In order to run your app on any Windows version that .NET supports, the best choice is set it to `7.0`.
 
@@ -76,9 +76,9 @@ Right click your project again, and click the **Manage NuGet packages** menu.
 
 ![Right click the project](right-click-the-project.png)
 
-Then click **Browse**, and type `inkore` in the search box. All our public libraries will appear here. Select **iNKORE.UI.WPF.Modern** and click **Install**.
+Then click **Browse**, and type `inkore` in the search box. All our public libraries will appear here. Then elect `iNKORE.UI.WPF.Modern` and click **Install**, select `iNKORE.UI.WPF` and click install again.
 
-![Browse NuGeT packages](browse-nuget-package.png)
+![Browse NuGet packages](browse-nuget-package.png)
 
 Then you're expected to see this package has been added to your dependencies list:
 
@@ -87,6 +87,24 @@ Then you're expected to see this package has been added to your dependencies lis
 :::info
 
 There are a few other libraries appearing when searching. You can learn more about them in our [Github profile](https://github.com/iNKORE-NET) and their repositories.
+
+:::
+
+:::warning Why **iNKORE.UI.WPF**?
+
+Generally, we use `iNKORE.UI.WPF` as a base library for all our WPF libraries. It contains some common utilities and controls that are shared among all our WPF libraries.
+
+If you see this exception when running, please install `iNKORE.UI.WPF` manually:
+
+> **System.Windows.Markup.XamlParseException**: 'Initialization of 'iNKORE.UI.WPF.Modern.ThemeResources' threw an exception.'
+
+> [InnerException]
+> FileNotFoundException: Could not load file or assembly 'iNKORE.UI.WPF, Version=######, Culture=neutral, PublicKeyToken=######'. The system cannot find the file specified.
+
+
+The iNKORE.UI.WPF should be automatically installed when you install iNKORE.UI.WPF.Modern. However, for some reason (probably NuGet internal bug or wrong configuration), it might not be installed.
+
+If you found a way to ensure `iNKORE.UI.WPF` is installed automatically, please let us know.
 
 :::
 
@@ -109,13 +127,16 @@ Finally your `App.xaml` file should look like this:
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StarterKit" 
+// highlight-next-line
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+// highlight-start
                 <ui:ThemeResources/>
                 <ui:XamlControlsResources/>
+// highlight-end
             </ResourceDictionary.MergedDictionaries>
             
             <!--Your other resources here (if exists)-->
@@ -163,10 +184,13 @@ Now your `MainWindow.xaml` should look like this:
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StarterKit" 
+// highlight-next-line
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+// highlight-start
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:WindowHelper.SystemBackdropType="Mica"
         ui:TitleBar.Height="36"
+// highlight-end
         mc:Ignorable="d"
         Title="Welcome!" Height="450" Width="800">
     
