@@ -39,16 +39,16 @@ Your **Page1** should look like this:
 ```xml title="Page1.xaml"
 # highlight-next-line
 <ui:Page x:Class="WpfApp1.Pages.Page1"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 # highlight-next-line
-      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-      mc:Ignorable="d" 
-      d:DesignHeight="360" d:DesignWidth="640"
-      Foreground="CornflowerBlue"
-      Title="Page 1">
+         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+         mc:Ignorable="d" 
+         d:DesignHeight="360" d:DesignWidth="640"
+         Foreground="CornflowerBlue"
+         Title="Page 1">
 
     <Grid>
         <Rectangle Margin="10" Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ui:Page}, Path=Foreground}" StrokeThickness="2"
@@ -82,17 +82,17 @@ And your **Page2** should look like this:
 ```xml title="Page2.xaml"
 # highlight-next-line
 <ui:Page x:Class="ExamplePhotoTaker.Pages.Page2"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ExamplePhotoTaker.Pages"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:local="clr-namespace:ExamplePhotoTaker.Pages"
 # highlight-next-line
-      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-      mc:Ignorable="d" 
-      d:DesignHeight="360" d:DesignWidth="640"
-      Foreground="SeaGreen"
-      Title="Page 2">
+         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+         mc:Ignorable="d" 
+         d:DesignHeight="360" d:DesignWidth="640"
+         Foreground="SeaGreen"
+         Title="Page 2">
 
     <Grid>
         <Rectangle Margin="10" Stroke="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ui:Page}, Path=Foreground}" StrokeThickness="2"
@@ -136,7 +136,7 @@ Now, create a new window and add a Frame control to it. Add a few buttons to nav
 
 # highlight-next-line
     <ui:Frame x:Name="Frame_Main" Margin="10" Grid.Row="1" 
-                BorderBrush="Gray" BorderThickness="2,2,2,2"/>
+              BorderBrush="Gray" BorderThickness="2,2,2,2"/>
 </Grid>
 ```
 
@@ -161,7 +161,7 @@ Clicking the buttons will navigate to the corresponding pages like this:
 
 :::warning
 
-We strongly NOT recommend you to use the `Navigate(Type sourcePageType)` method to navigate between pages, it's not recommended to use it in the modern UI development. Instead, we recommend you to use the `Navigate(object content)` method which we provided in the Frame control.
+We strongly **NOT** recommend you to use the `Navigate(Type sourcePageType)` method to navigate between pages, it's not recommended to use it in the modern UI development. Instead, we recommend you to use the `Navigate(object content)` method which we provided in the Frame control.
 
 For example, we may change the code from this:
 
@@ -181,7 +181,7 @@ private void Button_NavigateToPage1_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-or this:
+or this, which is even better:
 
 ```csharp
 Page1 Page_1 = new Page1();
