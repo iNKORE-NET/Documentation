@@ -1,8 +1,219 @@
 ---
-description: "COMING_SOON"
+description: "Provides the ability to create, configure, show, and manage the lifetime of windows and dialog boxes."
 ---
 
 # Window
 
-We're still working on this, coming soon!
+The Window class in represents a window in a Windows application. It provides a rich set of features to manage and interact with the window, such as handling its content, appearance, and behavior. This document covers the essential aspects of the Window class, including its properties, methods, and events.
 
+- **Class**: [System.Windows](https://learn.microsoft.com/en-us/dotnet/api/system.windows)[.Window](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button)
+
+- **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [Window](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.window)
+
+
+## Examples
+
+### Create a basic window
+
+You can create a basic window by using the Window class. By default, there's a main window called `MainWindow.xaml` when you create a WPF project with Visual Studio. Mostly we use this window as the main window of the application. You can also add more windows to the project with the following steps.
+
+First, create a new window by right-clicking the project in Solution Explorer, selecting **Add** > **New Item**, and then selecting Window (WPF) from the list. Name the new window `MyWindow.xaml`.
+
+![Add a new window file](add-a-new-window-file.png)
+
+Then, you can open the new window by creating an instance of it and calling the `Show` method. Here's an example of how to open the new window:
+
+```csharp
+var myWindow = new MyWindow();
+myWindow.Show();
+```
+
+### Apply modern styles
+
+The window is always using the default style and native frames unless you apply the modern styles manually. With **ui:WindowHelper.UseModernWindowStyle** property, you can easily apply modern style to a window like this:
+
+```xml title="MainWindow.xaml"
+<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+# highlight-next-line
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:WindowHelper.CornerStyle="Round"
+        Title="I was just walking by..." Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <ui:SimpleStackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <TextBlock Text="I know, karma's a b!tch." HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="Lorem ipsum dolor sit amet" FontSize="16" HorizontalAlignment="Center"/>
+    </ui:SimpleStackPanel>
+</Window>
+```
+
+![A basic modern window](a-basic-modern-window.png)
+
+### System backdrops
+
+Since Windows 10, there are a few system-level backdrops that can be applied to the window. You can use **ui:WindowHelper.SystemBackdrop** property to apply the backdrop. For example, you can apply the mica effect with the following code:
+
+```ini
+ui:WindowHelper.SystemBackdropType="Mica"
+```
+
+![Window with mica effect](with-mica-effect.jpg)
+
+### Back button in title bar
+
+You can use the **ui:TitleBar.IsBackButtonVisible** and **ui:TitleBar.IsBackEnabled** properties to show and enable the back button in the title bar. The back button is useful when you want to navigate back to the previous window or page.
+
+First, make sure the back button feature is enabled in the window:
+
+```ini
+ui:TitleBar.IsBackButtonVisible="True"
+ui:TitleBar.IsBackEnabled="True"
+```
+
+Then when you run, you may see there's a back button in the title bar. Next, you can handle the click event of the back button with **ui:TitleBar.BackButtonCommand**. For more infomation about the commands, please [click here](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/commanding-overview).
+
+The complete code should look like this:
+
+```xml title="MainWindow.xaml"
+<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        ui:WindowHelper.UseModernWindowStyle="True"
+# highlight-start
+        ui:TitleBar.IsBackButtonVisible="True"
+        ui:TitleBar.IsBackEnabled="True"
+        ui:TitleBar.BackButtonCommand="{x:Static local:MainWindow.BackCommand}"
+# highlight-end
+        Title="I was just walking by..." Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <ui:SimpleStackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <TextBlock Text="I know, karma's a b!tch." HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="Lorem ipsum dolor sit amet" FontSize="16" HorizontalAlignment="Center"/>
+    </ui:SimpleStackPanel>
+</Window>
+```
+
+```csharp title="MainWindow.xaml.cs"
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+# highlight-next-line
+        this.CommandBindings.Add(new CommandBinding(BackCommand, BackCommand_Executed));
+    }
+
+# highlight-next-line
+    public static readonly RoutedUICommand BackCommand = new RoutedUICommand("Back button clicked", "Back", typeof(MainWindow));
+
+    private void BackCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        // Do someting when the back button is clicked
+        MessageBox.Show("Back button is clicked!");
+    }
+}
+```
+
+When clicking the back button, you may see the expected message box coming up. You can replace the message box with your own logic to navigate back to the previous window or page.
+
+![Window with back button](window-with-back-button.png)
+
+You can also use the other properties with the keyword `Back` or `BackButton` in the **ui:TitleBar** class to do more customizations to the back button.
+
+### Customize title bar buttons
+
+There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
+
+- **ui:TitleBar.ButtonCloseAvailability**: The availability of the close button.
+
+- **ui:TitleBar.ButtonMaximizeAvailability**: The availability of the maximize/restore button.
+
+- **ui:TitleBar.ButtonMinimizeAvailability**: The availability of the minimize button.
+
+As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. There are a few values that you can choose from:
+
+- **Auto**: Let the system decide the availability of the button, which is the default value. The system will decide whether to show the button based on **WindowStyle** and **ResizeMode** property.
+
+- **Collapsed**: The button is hidden and disabled, there will be no space reserved for the button.
+
+- **Disabled**: The button is disabled but visible. You can still see the button but cannot interact with it.
+
+- **Enabled**: The button is enabled and visible. You can see and interact with the button.
+
+:::warning Be careful when you hide the close button.
+
+You can surely disable or hide the close button. But users can still close your window by pressing Alt+F4, using the task manager, clicking the close button on the taskbar or other methods.
+
+If you really wish your window to be unclosable, you should consider handling the **Window.Closing** event after disabling the close button, and cancel the closing operation by setting **Cancel** property of **CancelEventArgs** to **true**.
+
+:::
+
+For example, the following code will hide the minimize button and disable the close button:
+
+```ini
+ui:TitleBar.ButtonMinimizeAvailability="Collapsed"
+ui:TitleBar.ButtonCloseAvailability="Disabled"
+```
+
+![Window with hidden minimize button and disabled close button](hidden-minimize-and-disable-close.png)
+
+:::warning Never hide only one of minimize button and maximize/restore button.
+
+According to the Fluent Design guidelines, you should always show both minimize and maximize/restore buttons together. If you hide one of them, the other one should be hidden as well.
+
+Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
+
+:::
+
+## Members
+
+### WindowHelper.SystemBackdropType
+
+Gets or sets the system backdrop type of the window. You can choose from the following options:
+
+- **None**: None of the system backdrops will be applied. The window will remain solid.
+
+- **Acrylic10**: The window will have an acrylic effect using an older API, which is a translucent background that blurs the content behind it.
+
+- **Acrylic11**: The window will have an acrylic effect using a newer API, which is ALSO a translucent background that blurs the content behind it.
+
+- **Mica**: The window will have a mica effect, which is a translucent background that blurs the desktop background it.
+
+- **Tabbed**: The window will have a tabbed effect, which looks like mica but have deeper colors. This is often used when there's a root TabControl on the window (e.g. the Windows Explorer).
+
+:::info Acrylic10 and Acrylic11
+
+Though bothe Acrylic10 and Acrylic11 give you the similar look and feel, they are using different APIs. Acrylic10 is using the older API and Acrylic11 is using the newer API and the have some differences.
+
+|                   | Acrylic10                                                            | Acrylic11                                                                           |
+|-------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Availability      | <font color="seagreen">Windows 10 and 11 (Windows 10.0.17063+)</font>                              | Windows 11 (Windows 10.0.22523+)                                                    |
+| Performance       | Laggy when resizing the window                                       |  <font color="seagreen">Looks okay resizing the window</font>                                                      |
+| Customizations    | <font color="seagreen">Customizabe tint color (use ui:WindowHelper.Acrylic10Color property)</font> | Nothing                                                                             |
+| Transitions       | Nothing                                                              | <font color="seagreen">Both switching light/dark and focused/unfocused will display a transition animation</font> |
+| When losing focus | <font color="seagreen">Acrylic effect remains</font>                                               | Acrylic effect temporarily disabled                                                 |
+
+As the table shows, both the two Acrylic effects have their own pros and cons. You can choose the one that fits your needs.
+
+:::
+
+:::warning System Compatibility
+
+The availability of Acrylic backdrops are listed above. Mica and Tabbed are only available on Windows 11. If you're running the application on an older version of Windows, the system backdrops will not be applied.
+
+:::
+
+### WindowHelper.
+
+## Remarks
+
+## See also
