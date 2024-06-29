@@ -1,8 +1,12 @@
 {
-    "label": "Definitions",
     "link":
     {
         "type": "generated-index",
+        "title": "iNKORE.UI.WPF.Modern.Media Namespace",
         "description": "coming_soon"
+    },
+    "customProps":
+    {
+
     }
 }

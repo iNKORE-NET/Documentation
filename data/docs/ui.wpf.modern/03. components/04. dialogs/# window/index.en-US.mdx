@@ -129,91 +129,50 @@ When clicking the back button, you may see the expected message box coming up. Y
 
 You can also use the other properties with the keyword `Back` or `BackButton` in the **ui:TitleBar** class to do more customizations to the back button.
 
-### Customize title bar buttons
-
-There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
-
-- **ui:TitleBar.ButtonCloseAvailability**: The availability of the close button.
-
-- **ui:TitleBar.ButtonMaximizeAvailability**: The availability of the maximize/restore button.
-
-- **ui:TitleBar.ButtonMinimizeAvailability**: The availability of the minimize button.
-
-As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. There are a few values that you can choose from:
-
-- **Auto**: Let the system decide the availability of the button, which is the default value. The system will decide whether to show the button based on **WindowStyle** and **ResizeMode** property.
-
-- **Collapsed**: The button is hidden and disabled, there will be no space reserved for the button.
-
-- **Disabled**: The button is disabled but visible. You can still see the button but cannot interact with it.
-
-- **Enabled**: The button is enabled and visible. You can see and interact with the button.
-
-:::warning Be careful when you hide the close button.
-
-You can surely disable or hide the close button. But users can still close your window by pressing Alt+F4, using the task manager, clicking the close button on the taskbar or other methods.
-
-If you really wish your window to be unclosable, you should consider handling the **Window.Closing** event after disabling the close button, and cancel the closing operation by setting **Cancel** property of **CancelEventArgs** to **true**.
-
-:::
-
-For example, the following code will hide the minimize button and disable the close button:
-
-```ini
-ui:TitleBar.ButtonMinimizeAvailability="Collapsed"
-ui:TitleBar.ButtonCloseAvailability="Disabled"
-```
-
-![Window with hidden minimize button and disabled close button](hidden-minimize-and-disable-close.png)
-
-:::warning Never hide only one of minimize button and maximize/restore button.
-
-According to the Fluent Design guidelines, you should always show both minimize and maximize/restore buttons together. If you hide one of them, the other one should be hidden as well.
-
-Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
-
-:::
-
-## Members
-
-### WindowHelper.SystemBackdropType
-
-Gets or sets the system backdrop type of the window. You can choose from the following options:
-
-- **None**: None of the system backdrops will be applied. The window will remain solid.
-
-- **Acrylic10**: The window will have an acrylic effect using an older API, which is a translucent background that blurs the content behind it.
-
-- **Acrylic11**: The window will have an acrylic effect using a newer API, which is ALSO a translucent background that blurs the content behind it.
-
-- **Mica**: The window will have a mica effect, which is a translucent background that blurs the desktop background it.
-
-- **Tabbed**: The window will have a tabbed effect, which looks like mica but have deeper colors. This is often used when there's a root TabControl on the window (e.g. the Windows Explorer).
-
-:::info Acrylic10 and Acrylic11
-
-Though bothe Acrylic10 and Acrylic11 give you the similar look and feel, they are using different APIs. Acrylic10 is using the older API and Acrylic11 is using the newer API and the have some differences.
-
-|                   | Acrylic10                                                            | Acrylic11                                                                           |
-|-------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| Availability      | <font color="seagreen">Windows 10 and 11 (Windows 10.0.17063+)</font>                              | Windows 11 (Windows 10.0.22523+)                                                    |
-| Performance       | Laggy when resizing the window                                       |  <font color="seagreen">Looks okay resizing the window</font>                                                      |
-| Customizations    | <font color="seagreen">Customizabe tint color (use ui:WindowHelper.Acrylic10Color property)</font> | Nothing                                                                             |
-| Transitions       | Nothing                                                              | <font color="seagreen">Both switching light/dark and focused/unfocused will display a transition animation</font> |
-| When losing focus | <font color="seagreen">Acrylic effect remains</font>                                               | Acrylic effect temporarily disabled                                                 |
-
-As the table shows, both the two Acrylic effects have their own pros and cons. You can choose the one that fits your needs.
-
-:::
-
-:::warning System Compatibility
-
-The availability of Acrylic backdrops are listed above. Mica and Tabbed are only available on Windows 11. If you're running the application on an older version of Windows, the system backdrops will not be applied.
-
-:::
-
-### WindowHelper.
-
 ## Remarks
 
+### Attached Properties
+
+You can use [**ui:WindowHelper**](../../definitions/controls/helpers/window-helper) and [**ui:TitleBar**](../../definitions/controls/primitives/title-bar) to customize the window. The helper provides a set of attached properties to control the appearance and behavior of the window. You can use these properties to apply modern styles, system backdrops, and other features to the window.
+
+### Exception: PInvoke stack imbalance
+
+You might see this exception when targeting .NET Framework. It's harmless and can be ignored. For how to get rid of it and more information, please check  [**ui:WindowHelper.FixMaximizedWindow**](../../definitions/controls/helpers/window-helper#fixmaximizedwindow) property.
+
+### Managed Properties
+
+To provide the best look and feel, we need to take over the WindowChrome of the window to change it with your needs. So after applying the modern styles, You may NOT modify the WindowChrome of the window directly, for the same reason, you may NOT modify the following properties as well:
+
+- WindowChrome.WindowChrome
+
+- FrameworkElement.Style
+
+:::danger Never modify them directly
+
+If you modify the properties listed above, the modern styles and backdrop might be broken, and the window may not look as expected or even crash.
+
+:::
+
 ## See also
+
+### Microsoft Learn
+
+- [Window Class (WPF)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.window)
+
+### Related controls
+
+- [Flyout](./flyout)
+
+- [ContentDialog](./content-dialog)
+
+- [MessageBox](./message-box)
+
+### Related articles
+
+- [Definitions / WindowHelper](coming_soon)
+
+- [Definitions / TitleBar](coming_soon)
+
+- [Definitions / WindowCornerStyle](../../definitions/helpers/styles/window-corner-style)
+
+- [Definitions / BackdropType](../../definitions/helpers/styles/backdrop-type)
