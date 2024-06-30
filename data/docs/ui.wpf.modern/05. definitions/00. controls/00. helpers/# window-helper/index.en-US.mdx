@@ -17,136 +17,87 @@ Inheritance: No inheritance for static classes.
 
 ### UseModernWindowStyle
 
-Gets or sets whether the modern window style will be applied to the window. The modern window style is a custom window style that provides a modern look and feel to the window.
+Determines whether the modern style should be applied to the window.
 
-Only do you set this to true, all the properties below can work.
+More information on [Window](../../../components/dialogs/window#windowhelperusemodernwindowstyle).
+
+- Type: `bool`
+
+- Default value: `false`
 
 ### SystemBackdropType
 
-Gets or sets the system backdrop type of the window. You can choose one option from [BackdropType Enum](../../helpers/styles/backdrop-type).
+Specifies the system backdrop of the window.
 
-:::warning System Compatibility
+More information on [Window](../../../components/dialogs/window#windowhelpersystembackdroptype).
 
-The availability of Acrylic backdrops are listed above. Mica and Tabbed are only available on Windows 11. If you're running the application on an older version of Windows, the system backdrops will not be applied.
+- Type: [BackdropType](../../helpers/styles/backdrop-type)
 
-The option **Acrylic** will automatically choose the best API based on the system version. If you're running the application on Windows 11, it will use Acrylic11. If you're running the application on Windows 10, it will use Acrylic10. However, this may cause some unintended behaviors.
+- Default value: `BackdropType.None`
 
-:::
+### UseAeroBackdrop
+
+This is obsolete and no longer works. Use **SystemBackdropType** instead.
+
+### UseAcrylicBackdrop
+
+This is obsolete and no longer works. Use **SystemBackdropType** instead.
 
 ### Acrylic10Color
 
-Gets or sets the color of the Acrylic10 backdrop. This property is only works when **SystemBackdropType** is `Acrylic10` or is `Acrylic` and running on Windows 10. You can set this property to a **Color** value to customize the color of the Acrylic10 backdrop.
+The color of the acrylic effect when applying acrylic using the older API.
 
-:::warning Use Color values, not Brush
+More information on [Window](../../../components/dialogs/window#windowhelperacrylic10color).
 
-This property only accepts **Color** values, not **Brush** values. If you pass a **Brush** value, an exception will be thrown. You can use **ColorConverter** to convert a **Brush** to a **Color**.
+- Type: `Color`
 
-:::
+- Default value: `Color.FromArgb(0x99, 0x00, 0x00, 0x00)`
 
 ### ApplyBackground
 
-This property decides whether the **Background** property will be applied to the window. If you set this property to **False**, the **Background** property will be ignored and the window will not render its background. Usually we will automatically set this property depending on the backdrop you're using. You can also set this property manually to control the background rendering, though it's not commonly used. 
+Determines whether the background should be applied to the window.
 
-The default value is **True** when **SystemBackdropType** is **None**. Otherwise, it's **False**.
+More information on [Window](../../../components/dialogs/window#windowhelperapplybackground).
+
+- Type: `bool`
+
+- Default value: `true`
 
 ### ApplyNoise
 
-This property decides whether the noise effect will be applied to the window. If you set this property to **False**, the noise effect will not be rendered. The noise effect is a subtle noise texture that makes the window look more natural and less flat. The default value is always **False** since we figured out that when you use the acrylic backdrop, the noise effect will be covered by system and it's not necessary to render the noise effect again.
+Determines whether an extra noise layer should be applied to the window.
 
-You can set this property to **True** to enable an additional noise effect manually.
+More information on [Window](../../../components/dialogs/window#windowhelperapplynoise).
 
-### FixMaximizedWindow
+- Type: `bool`
 
-As we have fully customized the window for modern styles, the default maximize behavior of the window may not work as expected. But no worries, we have got a way to fix this issue and make the window maximize as expected. However, this fix may cause an exception as follow:
-
-> **Managed Debugging Assistant**: A call to PInvoke function 'iNKORE.UI.WPF.Modern!iNKORE.UI.WPF.Modern.Controls.Primitives.MaximizedWindowFixer::GetWindowPlacement' has unbalanced the stack. This is likely because the managed PInvoke signature does not match the unmanaged target signature. Check that the calling convention and parameters of the PInvoke signature match the target unmanaged signature.
-
-This exception is **harmless and can be ignored**. If you want to get rid of this exception, you can set this property to **False** (not recommended, since it will break the maximize function).
-
-```ini
-ui:WindowHelper.FixMaximizedWindow="False"
-```
-
-For a better solution, you can turn off the exception breaking in the **Exception Settings** window in Visual Studio:
-
-![Don't break when PInvoke exception is thrown](dont-break-when-pinvoke-exception.png)
-
-Or you can simply UNcheck **Break when this exception type is thrown** or CHECK **(Except when throw from) iNKORE.UI.WPF.Modern.dll** when this exception appears, this will also ignore the exception.
-
-![Except when throw from](except-when-throw-from.png)
+- Default value: `false`
 
 ### CornerStyle
 
-You can set the corner style of the window with this property. You can choose one option from [WindowCornerStyle Enum](../../helpers/styles/window-corner-style).
+Determines the corner style of the window.
 
-:::warning System compatibility
+More information on [Window](../../../components/dialogs/window#windowhelpercornerstyle).
 
-The corner style is only available on Windows 11. If you're running the application on an older version of Windows, the corner style will not be applied.
+- Type: [WindowCornerStyle](../../helpers/styles/window-corner-style)
 
-:::
+- Default value: `WindowCornerStyle.None`
 
-### Button*Availability
+### FixMaximizedWindow
 
-There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
+Determines whether an extra maximize fixer should be applied to the window.
 
-- **ui:TitleBar.ButtonCloseAvailability**: The availability of the close button.
+More information on [Window](../../../components/dialogs/window#windowhelperfixmaximizedwindow).
 
-- **ui:TitleBar.ButtonMaximizeAvailability**: The availability of the maximize/restore button.
+- Type: `bool`
 
-- **ui:TitleBar.ButtonMinimizeAvailability**: The availability of the minimize button.
-
-As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. There are a few values that you can choose from:
-
-- **Auto**: Let the system decide the availability of the button, which is the default value. The system will decide whether to show the button based on **WindowStyle** and **ResizeMode** property.
-
-- **Collapsed**: The button is hidden and disabled, there will be no space reserved for the button.
-
-- **Disabled**: The button is disabled but visible. You can still see the button but cannot interact with it.
-
-- **Enabled**: The button is enabled and visible. You can see and interact with the button.
-
-:::warning Be careful when you hide the close button.
-
-You can surely disable or hide the close button. But users can still close your window by pressing Alt+F4, using the task manager, clicking the close button on the taskbar or other methods.
-
-If you really wish your window to be unclosable, you should consider handling the **Window.Closing** event after disabling the close button, and cancel the closing operation by setting **Cancel** property of **CancelEventArgs** to **true**.
-
-:::
-
-For example, the following code will hide the minimize button and disable the close button:
-
-```ini
-ui:TitleBar.ButtonMinimizeAvailability="Collapsed"
-ui:TitleBar.ButtonCloseAvailability="Disabled"
-```
-
-![Window with hidden minimize button and disabled close button](hidden-minimize-and-disable-close.png)
-
-:::warning Never hide only one of minimize button and maximize/restore button.
-
-According to the Fluent Design guidelines, you should always show both minimize and maximize/restore buttons together. If you hide one of them, the other one should be hidden as well.
-
-Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
-
-:::
+- Default value: `true`
 
 ## Fields
 
 ### (Attached Properties)
 
 The attached properties listed above each have one DependencyProperty field.
-
-### UseAeroBackdropProperty
-
-Identifies the UseAeroBackdrop attached property. 
-
-- <font color ="orange">This is obsolete and no longer works. Use **SystemBackdropType** instead.</font>
-
-### UseAcrylicBackdropProperty
-
-Identifies the UseAcrylicBackdrop attached property. 
-
-- <font color ="orange">This is obsolete and no longer works. Use **SystemBackdropType** instead.</font>
 
 ## Methods
 
@@ -176,7 +127,7 @@ Unlike other controls, the modern style will not be applied automatically. You n
 
 ### Related articles
 
-- [Components / Window](../../../components/dialogs/window#WindowHelper.SystemBackdropType)
+- [Components / Window](../../../components/dialogs/window)
 
 ### Source code
 
