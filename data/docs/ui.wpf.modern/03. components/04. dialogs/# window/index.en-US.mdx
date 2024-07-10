@@ -200,7 +200,7 @@ The corner style is only available on Windows 11. If you're running the applicat
 
 :::
 
-### WindowHelper.*ButtonAvailability
+### TitleBar.*ButtonAvailability
 
 There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
 
@@ -210,15 +210,7 @@ There are three buttons located in the title bar by default: minimize, maximize/
 
 - **ui:TitleBar.MinimizeButtonAvailability**: The availability of the minimize button.
 
-As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. There are a few values that you can choose from:
-
-- **Auto**: Let the system decide the availability of the button, which is the default value. The system will decide whether to show the button based on **WindowStyle** and **ResizeMode** property.
-
-- **Collapsed**: The button is hidden and disabled, there will be no space reserved for the button.
-
-- **Disabled**: The button is disabled but visible. You can still see the button but cannot interact with it.
-
-- **Enabled**: The button is enabled and visible. You can see and interact with the button.
+As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. You can choose one option from [TitleBarButtonAvailability Enum](../../definitions/controls/primitives/titlebar-button-availability).
 
 :::warning Be careful when you hide the close button.
 
@@ -244,6 +236,10 @@ According to the Fluent Design guidelines, you should always show both minimize 
 Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
 
 :::
+
+### TitleBar.ButtonGlyphStyle
+
+You can set the glyph style of the title bar buttons with this property. You can choose one option from [TitleBarButtonGlyphStyle Enum](../../definitions/controls/primitives/titlebar-button-glyph-style).
 
 ## Remarks
 

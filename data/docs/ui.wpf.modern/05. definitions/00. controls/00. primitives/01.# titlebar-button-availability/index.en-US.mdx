@@ -1,4 +1,50 @@
 # TitleBarButtonAvailability Enum
 
-We're still working on this, coming soon!
+Defines the availability of the title bar controls buttons.
 
+## Definition
+
+- Namespace: [iNKORE.UI.WPF.Modern.Controls.Primitives](.)
+- Assembly: iNKORE.UI.WPF.Modern.dll
+
+```csharp
+public enum TitleBarButtonAvailability {...}
+```
+
+Inheritance: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuetype) → [Enum](https://learn.microsoft.com/en-us/dotnet/api/system.enum) → TitleBarButtonAvailability
+
+## Fields
+
+### Auto
+
+Let the system decide the availability of the button, which is the default value. The system will decide whether to show the button based on **WindowStyle** and **ResizeMode** property.
+
+**Value**: 0
+
+### Collapsed
+
+The button is hidden and disabled, there will be no space reserved for the button.
+
+**Value**: 1
+
+### Disabled
+
+The button is disabled but visible. You can still see the button but cannot interact with it.
+
+**Value**: 2
+
+### Enabled
+
+The button is enabled and visible. You can see and interact with the button.
+
+**Value**: 3
+
+## See also
+
+### Related articles
+
+- [Components / Window](../../../components/dialogs/window#WindowHelper.SystemBackdropType)
+
+### Source code
+
+- [Github | TitleBar.cs#coming_soon]https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/source/iNKORE.UI.WPF.Modern/Controls/Primitives/TitleBar.cs)
