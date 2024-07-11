@@ -3,6 +3,6 @@
     "link":
     {
         "type": "generated-index",
-        "description": "coming_soon"
+        "description": "All the API definitions for the library. This is the root namespace: iNKORE.UI.WPF.Modern. All the classes, interfaces, enums, etc. are defined here and they follow the namespace structure of the library."
     }
 }
