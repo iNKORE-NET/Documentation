@@ -1,0 +1,98 @@
+---
+
+description: "显示为超链接文本的按钮，可以导航到 URI 或处理 Click 事件。"
+
+---
+
+# 超链接按钮
+
+超链接按钮显示为文本超链接。当用户点击它时，它会在默认浏览器中打开您在 NavigateUri 属性中指定的页面。或者，您可以处理其 Click 事件，通常用于在应用程序内导航。
+
+- **类**: [iNKORE.UI.WPF.Modern.Controls](..)[.HyperlinkButton](.)
+
+- **继承**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase) → [HyperlinkButton](.)
+
+## 示例
+
+**HyperlinkButton** 看起来像超链接文本，但工作方式像按钮。您可以通过两种方式使用它：
+
+### 使用 Click 事件
+
+处理 **Click** 事件 **（推荐）**。这与标准 **Button** 的 **Click** 事件工作方式相同，可用于在应用程序内导航。
+
+```xml
+<ui:HyperlinkButton Content="iNKORE 的官方网站" RaiseHyperlinkClicks="False" Click="HyperlinkButton_Click"/>
+```
+
+```csharp
+private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+{
+    Process.Start(new ProcessStartInfo("https://inkore.net/")
+    {
+        UseShellExecute = true
+    });
+}
+```
+
+![](a-hyperlink-button.png)
+
+:::warning
+
+注意 **RaiseHyperlinkClicks** 属性！它将在以下部分介绍。
+
+:::
+
+### 使用 NavigateUri 属性
+
+设置 **NavigateUri** 属性。当用户点击它时，它会自动在默认浏览器中打开 URI。
+
+```xml
+<ui:HyperlinkButton Content="iNKORE 的官方网站" NavigateUri="https://inkore.net/"/>
+```
+
+## 备注
+
+### 这是正确的控件吗？
+
+当您需要文本在按下时响应并导航用户到有关按下文本的更多信息时，请使用超链接。
+
+根据您的需求选择正确类型的超链接：
+
+- 在文本控件内使用内联 [Hyperlink](https://learn.microsoft.com/en-us/dotnet/api/system.windows.documents.hyperlink) 文本元素。Hyperlink 元素与其他文本元素一起流动，您可以在任何 InlineCollection 中使用它。如果您想要自动换行文本且不一定需要大的点击目标，请使用文本超链接。超链接文本可能很小且难以点击，尤其是对于触摸。
+
+- 对于独立的超链接，请使用 HyperlinkButton。HyperlinkButton 是一个专门的 Button 控件，您可以在任何使用 Button 的地方使用它。
+
+- 使用带有图像作为内容的 HyperlinkButton 以创建可点击的图像。
+
+### RaiseHyperlinkClicks 属性
+
+由于 WPF 的内部设计，单击按钮一次时 Click 事件将触发两次。为避免这种情况，如果您使用 **Click** 事件而不是 **NavigateUri** 属性，则需要将 **RaiseHyperlinkClicks** 属性设置为 `false`。
+
+当 **RaiseHyperlinkClicks** 设置为 `false` 时，NavigateUri 将被忽略且不会触发。
+
+:::tip 建议
+
+- 仅将超链接用于导航；不要将它们用于其他操作。
+- 对于基于文本的超链接，请使用类型阶梯中的正文样式。阅读有关字体和 Windows 类型阶梯的信息。
+- 保持离散超链接之间的距离足够远，以便用户可以区分它们并轻松选择每一个。
+- 为超链接添加工具提示，指示用户将被引导到哪里。如果用户将被引导到外部站点，请在工具提示中包含顶级域名，并使用次要字体颜色样式化文本。
+
+:::
+
+### 样式
+
+超链接按钮控件有一种内置样式。由于这是一个直接来自 `iNKORE.UI.WPF.Modern.Controls.dll` 的控件，默认样式键为 `null`，您可以使用 `{x:Null}` 应用默认样式。
+
+## 另请参阅
+
+### Microsoft Learn
+
+- [HyperlinkButton 类 (WinRT)](https://learn.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.hyperlinkbutton)
+
+- [Hyperlink 类 (WPF)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.documents.hyperlink)
+
+- [超链接 - Windows 应用](https://learn.microsoft.com/en-us/windows/apps/design/controls/hyperlinks#create-a-hyperlinkbutton)
+
+### 相关控件
+
+- [Button](./button)
