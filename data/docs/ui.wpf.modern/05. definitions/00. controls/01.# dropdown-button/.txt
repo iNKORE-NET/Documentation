@@ -1,0 +1,11 @@
+- **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) → [ButtonBase](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.primitives.buttonbase) → [Button](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.button) → [DropDownButton](.)
+
+### ShowChevronArrow
+
+The DropDownButton has a chevron arrow in the right by default. You can set **ShowChevronArrow** to false if you want to hide it. If you do so, it will look completely like a Button, but the Flyout can still be opened.
+
+```xml
+<ui:DropDownButton Content="DropDownButton looks like a button!" ShowChevronArrow="False"/>
+```
+
+![](no-chevron-arrow.png)
