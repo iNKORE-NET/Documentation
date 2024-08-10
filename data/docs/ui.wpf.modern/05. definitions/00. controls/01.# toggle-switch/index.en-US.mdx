@@ -1,0 +1,107 @@
+# ToggleSwitch Class
+
+Represents a switch that can be toggled between two states. 
+
+For more info, design guidance, and code examples, see [Toggle switches](%BASE_NAME%/components/basic-input/toggle-switch).
+
+## Definition
+
+- Namespace: [iNKORE.UI.WPF.Modern.Controls](.)
+
+- Assembly: iNKORE.UI.WPF.Modern.dll
+
+- Inheritance: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → ToggleSwitch
+
+```csharp
+[ContentProperty(nameof(Header))]
+[TemplatePart(Name = nameof(HeaderContentPresenter), Type = typeof(ContentPresenter))]
+[TemplatePart(Name = nameof(SwitchKnobBounds), Type = typeof(FrameworkElement))]
+[TemplatePart(Name = nameof(SwitchKnob), Type = typeof(FrameworkElement))]
+[TemplatePart(Name = nameof(KnobTranslateTransform), Type = typeof(TranslateTransform))]
+[TemplatePart(Name = nameof(SwitchThumb), Type = typeof(Thumb))]
+[TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StateNormal)]
+[TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StateMouseOver)]
+[TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StatePressed)]
+[TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StateDisabled)]
+[TemplateVisualState(GroupName = ContentStatesGroup, Name = OffContentState)]
+[TemplateVisualState(GroupName = ContentStatesGroup, Name = OnContentState)]
+[TemplateVisualState(GroupName = ToggleStatesGroup, Name = DraggingOnState)]
+[TemplateVisualState(GroupName = ToggleStatesGroup, Name = DraggingOffState)]
+[TemplateVisualState(GroupName = ToggleStatesGroup, Name = OffState)]
+[TemplateVisualState(GroupName = ToggleStatesGroup, Name = OnState)]
+public class ToggleSwitch : Control { ... }
+```
+
+## Constructors
+
+### ToggleSwitch()
+	
+Initializes a new instance of the ToggleSwitch class.
+
+## Properties
+
+### IsOn
+
+Gets or sets a value that indicates whether the ToggleSwitch is on or off.
+
+- Property: Dependency
+
+- Type: `bool`
+
+- Default value: `false`
+
+### [On/Off]-[Content/ContentTemplate]
+
+By default, the toggle switch includes literal On and Off labels, which are localized automatically. You can replace these labels by setting the OnContent, and OffContent properties.
+
+This example replaces the On/Off labels with Show/Hide labels.
+
+```xml
+<ToggleSwitch x:Name="imageToggle" Header="Show images" OffContent="Show" OnContent="Hide"
+    Toggled="ToggleSwitch_Toggled"/>
+```
+
+This example removed the labels.
+
+```xml
+<ToggleSwitch OffContent="" OnContent="" Toggled="ToggleSwitch_Toggled"/>
+```
+
+You can also use more complex content by setting the OnContentTemplate and OffContentTemplate properties.
+
+### (Inherits)
+
+This class inherits properties from its base class **Control**.
+
+## Events
+
+### Toggled
+
+Occurs when the value of the **IsOn** property changes.
+
+- Event: Routed
+
+- Type: `RoutedEventHandler`
+
+### (Inherits)
+
+This class inherits events from its base class **Control**.
+
+## Methods
+
+### (Inherits)
+
+This class inherits methods from its base class **Control**.
+
+
+## See also
+
+### Microsoft Learn
+
+- [Toggle switches - Windows apps](https://learn.microsoft.com/en-us/windows/apps/design/controls/toggles)
+
+- [ToggleSwitch class (WinRT)](https://learn.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch?view=windows-app-sdk-1.5)
+
+### Related articles
+
+- [Components / ToggleSwitch](%BASE_NAME%/components/basic-input/toggle-switch)

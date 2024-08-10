@@ -16,7 +16,9 @@ public static class TitleBar {...}
 
 Inheritance: No inheritance for static classes.
 
-## Dependency Properties
+## Includes
+
+This class includes the following attached properties and events:
 
 ### Background
 
@@ -110,7 +112,7 @@ True if the back button is enabled; otherwise, false.
 
 - Default value: `true`
 
-### BackButton-(Command/CommandParameter/CommandTarget)
+### BackButton-[Command/CommandParameter/CommandTarget]
 
 The necessary properties to bind a command to the back button. The back button is used to navigate back in the navigation history of the window.
 
@@ -174,7 +176,7 @@ The height of the title bar area.
 
 - Default value: `36`
 
-### (Close/Minimize/Maximize)-ButtonAvailability
+### [Close/Minimize/Maximize]-ButtonAvailability
 
 There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
 
@@ -229,8 +231,6 @@ The null value means the style will be selected automatically based on the syste
 
 - Default value: `null`
 
-### Routed Events
-
 ### BackRequested
 
 Occurs when the back button is clicked.
@@ -273,7 +273,7 @@ This class is used to customize the title bar of the [Window](%BASE_NAME%/compon
 
 - [Components / Window](%BASE_NAME%/components/dialogs/window#WindowHelper.SystemBackdropType)
 
-- [Class / TitleBar](%BASE_NAME%/definitions/controls/primitives/titlebar)
+- [Definitions / TitleBar Class](%BASE_NAME%/definitions/controls/primitives/titlebar)
 
 ### Source code
 

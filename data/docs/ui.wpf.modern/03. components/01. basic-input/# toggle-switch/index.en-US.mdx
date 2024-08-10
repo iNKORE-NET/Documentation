@@ -8,8 +8,6 @@ Use ToggleSwitch controls to present users with exactly two mutually exclusive o
 
 - **Class**: [iNKORE.UI.WPF.Modern.Controls](..)[.ToggleSwitch](.)
 
-- **Inheritance**: [Object](https://learn.microsoft.com/en-us/dotnet/api/system.object) → (...) → [Control](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.control) → [ToggleSwitch](.)
-
 ## Examples
 
 Here's how to create a simple toggle switch. This XAML creates a toggle switch.
@@ -46,9 +44,6 @@ private void ToggleSwitch_MainLight_Toggled(object sender, RoutedEventArgs e)
 ![](main-light-on.png)
 
 ## Remarks
-
-CheckBox controls inherit from [ToggleButton](./toggle-button) and can have three states: checked (selected), unchecked (cleared), and indeterminate.
-
 
 ### Is this the right control?
 
@@ -91,27 +86,6 @@ For some actions, either a toggle switch or a check box might work. To decide wh
 
 :::
 
-### On/Off labels
-
-By default, the toggle switch includes literal On and Off labels, which are localized automatically. You can replace these labels by setting the OnContent, and OffContent properties.
-
-This example replaces the On/Off labels with Show/Hide labels.
-
-```xml
-<ToggleSwitch x:Name="imageToggle" Header="Show images"
-    OffContent="Show" OnContent="Hide"
-    Toggled="ToggleSwitch_Toggled"/>
-```
-
-This example removed the labels.
-
-```xml
-<ToggleSwitch OffContent="" OnContent=""
-    Toggled="ToggleSwitch_Toggled"/>
-```
-
-You can also use more complex content by setting the OnContentTemplate and OffContentTemplate properties.
-
 ### Compact Sizing
 
 If you are using ToggleSwitch in a compact layout, you might find out that even if the check box has no content, it takes an amount of space. This is because the **MinWidth** property is set in the default style. 
@@ -128,16 +102,18 @@ To fix this, you can simply set **MinWidth** property to `0` like this:
 
 ## See also
 
+### Related articles
+
+- [Definitions / ToggleSwitch Class](%BASE_NAME%/definitions/controls/primitives/toggle-switch)
+
+- [Components / CheckBox](./check-box)
+
+- [Components / ToggleButton](./toggle-button)
+
+- [Components / RadioButton](./radio-button)
+
 ### Microsoft Learn
 
 - [Guidelines for toggle switch](https://learn.microsoft.com/en-us/windows/apps/design/controls/toggles)
 
 - [ToggleSwitch Class (WinRT)](https://learn.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.toggleswitch)
-
-### Related controls
-
-- [CheckBox](./check-box)
-
-- [ToggleButton](./toggle-button)
-
-- [RadioButton](./radio-button)
