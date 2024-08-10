@@ -128,49 +128,6 @@ When clicking the back button, you may see the expected message box coming up. Y
 
 You can also use the other properties with the keyword `Back` or `BackButton` in the **ui:TitleBar** class to do more customizations to the back button.
 
-## Members
-
-### TitleBar.*ButtonAvailability
-
-There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
-
-- **ui:TitleBar.CloseButtonAvailability**: The availability of the close button.
-
-- **ui:TitleBar.MaximizeButtonAvailability**: The availability of the maximize/restore button.
-
-- **ui:TitleBar.MinimizeButtonAvailability**: The availability of the minimize button.
-
-As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. You can choose one option from [TitleBarButtonAvailability Enum](../../definitions/controls/primitives/titlebar-button-availability).
-
-:::warning Be careful when you hide the close button.
-
-You can surely disable or hide the close button. But users can still close your window by pressing Alt+F4, using the task manager, clicking the close button on the taskbar or other methods.
-
-If you really wish your window to be unclosable, you should consider handling the **Window.Closing** event after disabling the close button, and cancel the closing operation by setting **Cancel** property of **CancelEventArgs** to **true**.
-
-:::
-
-For example, the following code will hide the minimize button and disable the close button:
-
-```ini
-ui:TitleBar.ButtonMinimizeAvailability="Collapsed"
-ui:TitleBar.ButtonCloseAvailability="Disabled"
-```
-
-![Window with hidden minimize button and disabled close button](hidden-minimize-and-disable-close.png)
-
-:::warning Never hide only one of minimize button and maximize/restore button.
-
-According to the Fluent Design guidelines, you should always show both minimize and maximize/restore buttons together. If you hide one of them, the other one should be hidden as well.
-
-Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
-
-:::
-
-### TitleBar.ButtonGlyphStyle
-
-You can set the glyph style of the title bar buttons with this property. You can choose one option from [TitleBarButtonGlyphStyle Enum](../../definitions/controls/primitives/titlebar-button-glyph-style).
-
 ## Remarks
 
 ### Managed Properties
@@ -231,10 +188,10 @@ Use the following classes to customize the window control along with the title b
 
 ### Related articles
 
-- [Definitions / WindowHelper](../../definitions/controls/helpers/window-helper)
+- [Definitions / WindowHelper](%BASE_NAME%/definitions/controls/helpers/window-helper)
 
-- [Definitions / TitleBar](coming_soon)
+- [Definitions / TitleBar](%BASE_NAME%/definitions/controls/primitives/titlebar)
 
-- [Definitions / WindowCornerStyle](../../definitions/helpers/styles/window-corner-style)
+- [Definitions / WindowCornerStyle](%BASE_NAME%/definitions/helpers/styles/window-corner-style)
 
-- [Definitions / BackdropType](../../definitions/helpers/styles/backdrop-type)
+- [Definitions / BackdropType](%BASE_NAME%/definitions/helpers/styles/backdrop-type)

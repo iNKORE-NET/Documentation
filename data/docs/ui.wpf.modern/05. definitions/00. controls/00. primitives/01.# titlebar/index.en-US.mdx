@@ -1,0 +1,280 @@
+# TitleBar Class
+
+Provides common properties to customize the title bar, including attached properties for Window component.
+
+## Definition
+
+- Namespace: [iNKORE.UI.WPF.Modern.Controls.Primitives](.)
+- Assembly: iNKORE.UI.WPF.Modern.dll
+
+```csharp
+[StyleTypedProperty(Property = StylePropertyName, StyleTargetType = typeof(TitleBarControl))]
+[StyleTypedProperty(Property = ButtonStylePropertyName, StyleTargetType = typeof(TitleBarButton))]
+[StyleTypedProperty(Property = BackButtonStylePropertyName, StyleTargetType = typeof(TitleBarButton))]
+public static class TitleBar {...}
+```
+
+Inheritance: No inheritance for static classes.
+
+## Dependency Properties
+
+### Background
+
+The background color of the title bar, which fills the entire title bar area, only works when the window is active.
+
+- Property: Attached
+
+- Type: `Brush`
+
+- Default value: `null`
+
+### Foreground
+
+The foreground color of the title bar, which is used to colorize the text (title), only works when the window is active.
+
+- Property: Attached | Inherited
+
+- Type: `Brush`
+
+- Default value: Inherited
+
+### InactiveBackground
+
+The same as Background, but only works when the window is inactive.
+
+- Property: Attached
+
+- Type: `Brush`
+
+- Default value: `null`
+
+### InactiveForeground
+
+The same as Foreground, but only works when the window is inactive.
+
+- Property: Attached | Inherited
+
+- Type: `Brush`
+
+- Default value: Inherited
+
+### Style
+
+The style of the title bar, which is used to customize the appearance of the title bar. However, this property is not recommended to use, you should use the **Background**, **Foreground**, **InactiveBackground**, and **InactiveForeground** properties to customize the title bar.
+
+- Property: Attached
+
+- Type: `Style`
+
+- Default value: `null`
+
+### ButtonStyle
+
+The style of the title bar buttons, which is used to customize the appearance of the title bar buttons.
+
+- Property: Attached
+
+- Type: `Style`
+
+- Default value: `null`
+
+### IsIconVisible
+
+Gets or sets whether the icon of the window will be visible in the left of the title bar, before the title.
+
+- Property: Attached
+
+- Type: `bool`
+
+- Default value: `false`
+
+### IsBackButtonVisible
+
+Gets or sets whether the back button will be visible in the left of the title bar, before the icon.
+
+- Property: Attached
+
+- Type: `bool`
+
+- Default value: `false`
+
+### IsBackEnabled
+
+Gets a value that indicates whether the back button is enabled or disabled.
+
+True if the back button is enabled; otherwise, false.
+
+- Property: Attached
+
+- Type: `bool`
+
+- Default value: `true`
+
+### BackButton-(Command/CommandParameter/CommandTarget)
+
+The necessary properties to bind a command to the back button. The back button is used to navigate back in the navigation history of the window.
+
+If you prefer to use Click event instead of Command, you can use the **BackRequested** event.
+
+| ****              | **Property** | ** Type**     | **Default value** |
+|-------------------|--------------|---------------|-------------------|
+| -Command          | Attached     | ICommand      | null              |
+| -CommandParameter | Attached     | object        | null              |
+| -CommandTarget    | Attached     | IInputElement | null              |
+
+### BackButtonStyle
+
+The style of the back button, which is used to customize the appearance of the back button.
+
+- Property: Attached
+
+- Type: `Style`
+
+- Default value: `null`
+
+### ExtendViewIntoTitleBar
+
+Gets or sets whether the client area of the window extends into the title bar area. This is quite useful when you want to create a custom title bar with custom controls.
+
+If this property is set to **true**, the client area will be exactly the same size as the window, including the title bar area. If this property is set to **false**, the client area will be smaller than the window, excluding the title bar area. This
+
+- Property: Attached
+
+- Type: `bool`
+
+- Default value: `false`
+
+### SystemOverlayLeftInset
+
+The width of the system overlay left inset, useful when you want to create a custom title bar with custom controls and want to avoid the system overlay area.
+
+- Property: Attached | Readonly
+
+- Type: `double`
+
+- Default value: `0` (changes based on the system)
+
+### SystemOverlayRightInset
+
+The width of the system overlay right inset, useful when you want to create a custom title bar with custom controls and want to avoid the system overlay area.
+
+- Property: Attached | Readonly
+
+- Type: `double`
+
+- Default value: `0` (changes based on the system)
+
+### Height
+
+The height of the title bar area.
+
+- Property: Attached
+
+- Type: `double`
+
+- Default value: `36`
+
+### (Close/Minimize/Maximize)-ButtonAvailability
+
+There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
+
+- **ui:TitleBar.CloseButtonAvailability**: The availability of the close button.
+
+- **ui:TitleBar.MaximizeButtonAvailability**: The availability of the maximize/restore button.
+
+- **ui:TitleBar.MinimizeButtonAvailability**: The availability of the minimize button.
+
+As the word 'availability' means, you can control the visibility and enabled status of the buttons with these properties. You can choose one option from [TitleBarButtonAvailability Enum](%BASE_NAME%/definitions/controls/primitives/titlebar-button-availability).
+
+:::warning Be careful when you hide the close button.
+
+You can surely disable or hide the close button. But users can still close your window by pressing Alt+F4, using the task manager, clicking the close button on the taskbar or other methods.
+
+If you really wish your window to be unclosable, you should consider handling the **Window.Closing** event after disabling the close button, and cancel the closing operation by setting **Cancel** property of **CancelEventArgs** to **true**.
+
+:::
+
+For example, the following code will hide the minimize button and disable the close button:
+
+```ini
+ui:TitleBar.ButtonMinimizeAvailability="Collapsed"
+ui:TitleBar.ButtonCloseAvailability="Disabled"
+```
+
+![Window with hidden minimize button and disabled close button](hidden-minimize-and-disable-close.png)
+
+:::warning Never hide only one of minimize button and maximize/restore button.
+
+The example above is just for demonstration. Do not imitate it in your applications. According to the Fluent Design guidelines, you should always show both minimize and maximize/restore buttons together. If you hide one of them, the other one should be hidden as well.
+
+Though we give you the full rights to customize your applications, it's not recommended since it might confuse users and break the consistency of the UI.
+
+:::
+
+- Property: Attached
+
+- Type: [TitleBarButtonAvailability](%BASE_NAME%/definitions/controls/primitives/titlebar-button-availability)
+
+- Default value: `Auto`
+
+### ButtonGlyphStyle
+
+The button is disabled but visible. You can still see the button but cannot interact with it. You can choose from [TitleBarButtonGlyphStyle Enum](%BASE_NAME%/definitions/controls/primitives/titlebar-button-glyph-style).
+
+The null value means the style will be selected automatically based on the system.
+
+- Property: Attached
+
+- Type: [TitleBarButtonGlyphStyle](%BASE_NAME%/definitions/controls/primitives/titlebar-button-glyph-style)?
+
+- Default value: `null`
+
+### Routed Events
+
+### BackRequested
+
+Occurs when the back button is clicked.
+
+- Event: Attached
+
+- Handler: `EventHandler<BackRequestedEventArgs>`
+
+## Fields
+
+### (Dependency Properties)
+
+The dependency properties listed above each have one DependencyProperty field. 
+
+### (Routed Events)
+
+The routed events listed above each have one RoutedEvent field.
+
+## Methods
+
+### (Dependency Properties)
+
+The attached non-readonly dependency properties listed above each have a **Get** and **Set** method;
+
+The attached readonly dependency properties listed above each have a **Get** method;
+
+### (Routed Events)
+
+The attached routed events listed above each have an **Add** and **Remove** method;
+
+## Remarks
+
+### Component
+
+This class is used to customize the title bar of the [Window](%BASE_NAME%/components/dialogs/window) and TitleBarControl (internal) component.
+
+## See also
+
+### Related articles
+
+- [Components / Window](%BASE_NAME%/components/dialogs/window#WindowHelper.SystemBackdropType)
+
+- [Class / TitleBar](%BASE_NAME%/definitions/controls/primitives/titlebar)
+
+### Source code
+
+- [Github | TitleBar.cs](https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/source/iNKORE.UI.WPF.Modern/Controls/Primitives/TitleBar.cs)

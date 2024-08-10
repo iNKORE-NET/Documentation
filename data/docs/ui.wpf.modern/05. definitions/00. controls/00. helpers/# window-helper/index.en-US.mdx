@@ -13,13 +13,15 @@ public static class WindowHelper {...}
 
 Inheritance: No inheritance for static classes.
 
-## Attached Properties
+## Dependency Properties
 
 ### UseModernWindowStyle
 
 Gets or sets whether the modern window style will be applied to the window. The modern window style is a custom window style that provides a modern look and feel to the window.
 
 Only do you set this to true, all the properties below can work.
+
+- Property: Attached
 
 - Type: `bool`
 
@@ -37,6 +39,8 @@ The option **Acrylic** will automatically choose the best API based on the syste
 
 :::
 
+- Property: Attached
+
 - Type: [BackdropType](%BASE_NAME%/definitions/helpers/styles/backdrop-type)
 
 - Default value: `BackdropType.None`
@@ -51,6 +55,8 @@ This property only accepts **Color** values, not **Brush** values. If you pass a
 
 :::
 
+- Property: Attached
+
 - Type: `Color`
 
 - Default value: `Color.FromArgb(0x99, 0x00, 0x00, 0x00)`
@@ -58,6 +64,8 @@ This property only accepts **Color** values, not **Brush** values. If you pass a
 ### ApplyBackground
 
 This property decides whether the **Background** property will be applied to the window. If you set this property to **False**, the **Background** property will be ignored and the window will not render its background. Usually we will automatically set this property depending on the backdrop you're using. You can also set this property manually to control the background rendering, though it's not commonly used. 
+
+- Property: Attached
 
 - Type: `bool`
 
@@ -68,6 +76,8 @@ This property decides whether the **Background** property will be applied to the
 This property decides whether the noise effect will be applied to the window. If you set this property to **False**, the noise effect will not be rendered. The noise effect is a subtle noise texture that makes the window look more natural and less flat. The default value is always **False** since we figured out that when you use the acrylic backdrop, the noise effect will be covered by system and it's not necessary to render the noise effect again.
 
 You can set this property to **True** to enable an additional noise effect manually.
+
+- Property: Attached
 
 - Type: `bool`
 
@@ -83,6 +93,8 @@ The corner style is only available on Windows 11. If you're running the applicat
 
 :::
 
+- Property: Attached
+
 - Type: [WindowCornerStyle](../../helpers/styles/window-corner-style)
 
 - Default value: `WindowCornerStyle.None`
@@ -95,6 +107,8 @@ However sometimes this fixer may cause some exceptions. No worries, these except
 
 For more information, see [Window / Maximize fixer](%BASE_NAME%/components/dialogs/window#Maximizefixer).
 
+- Property: Attached
+
 - Type: `bool`
 
 - Default value: `true`
@@ -104,6 +118,8 @@ For more information, see [Window / Maximize fixer](%BASE_NAME%/components/dialo
 Determines whether the manual border should be displayed. The manual border is a border that is drawn manually by the window. It follows the **BorderBrush** and **BorderThickness** properties of the window, which allows you to customize the border of the window.
 
 This property is read-only. It is determined by your system version. In Windows 11 or greater, the DWM will automatically draw the border for you. In Windows 10 or lower, the manual border will be displayed.
+
+- Property: Attached | Read-only
 
 - Type: `bool`
 
@@ -119,15 +135,17 @@ This is obsolete and no longer works. Use **SystemBackdropType** instead.
 
 ## Fields
 
-### (Attached Properties)
+### (Dependency Properties)
 
-The attached properties listed above each have one DependencyProperty field.
+The dependency properties listed above each have one DependencyProperty field. 
 
 ## Methods
 
-### (Attached Properties)
+### (Dependency Properties)
 
-The attached properties listed above each have a **Get** and **Set** method.
+The attached non-readonly dependency properties listed above each have a **Get** and **Set** method;
+
+The attached readonly dependency properties listed above each have a **Get** method;
 
 ### UpdateWindowChrome
 
