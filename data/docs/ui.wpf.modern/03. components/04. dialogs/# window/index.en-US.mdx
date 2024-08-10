@@ -130,76 +130,6 @@ You can also use the other properties with the keyword `Back` or `BackButton` in
 
 ## Members
 
-### WindowHelper.UseModernWindowStyle
-
-Gets or sets whether the modern window style will be applied to the window. The modern window style is a custom window style that provides a modern look and feel to the window.
-
-Only do you set this to true, all the properties below can work.
-
-### WindowHelper.SystemBackdropType
-
-Gets or sets the system backdrop type of the window. You can choose one option from [BackdropType Enum](../../definitions/helpers/styles/backdrop-type).
-
-:::warning System Compatibility
-
-The availability of Acrylic backdrops are listed above. Mica and Tabbed are only available on Windows 11. If you're running the application on an older version of Windows, the system backdrops will not be applied.
-
-The option **Acrylic** will automatically choose the best API based on the system version. If you're running the application on Windows 11, it will use Acrylic11. If you're running the application on Windows 10, it will use Acrylic10. However, this may cause some unintended behaviors.
-
-:::
-
-### WindowHelper.Acrylic10Color
-
-Gets or sets the color of the Acrylic10 backdrop. This property is only works when **SystemBackdropType** is `Acrylic10` or is `Acrylic` and running on Windows 10. You can set this property to a **Color** value to customize the color of the Acrylic10 backdrop.
-
-:::warning Use Color values, not Brush
-
-This property only accepts **Color** values, not **Brush** values. If you pass a **Brush** value, an exception will be thrown. You can use **iNKORE.UI.WPF.Converters.ColorToBrushConverter** to convert a **Brush** to a **Color** (need to revert).
-
-:::
-
-### WindowHelper.ApplyBackground
-
-This property decides whether the **Background** property will be applied to the window. If you set this property to **False**, the **Background** property will be ignored and the window will not render its background. Usually we will automatically set this property depending on the backdrop you're using. You can also set this property manually to control the background rendering, though it's not commonly used. 
-
-The default value is **True** when **SystemBackdropType** is **None**. Otherwise, it's **False**.
-
-### WindowHelper.ApplyNoise
-
-This property decides whether the noise effect will be applied to the window. If you set this property to **False**, the noise effect will not be rendered. The noise effect is a subtle noise texture that makes the window look more natural and less flat. The default value is always **False** since we figured out that when you use the acrylic backdrop, the noise effect will be covered by system and it's not necessary to render the noise effect again.
-
-You can set this property to **True** to enable an additional noise effect manually.
-
-### WindowHelper.FixMaximizedWindow
-
-As we have fully customized the window for modern styles, the default maximize behavior of the window may not work as expected. But no worries, we have got a way to fix this issue and make the window maximize as expected. However, this fix may cause an exception as follow:
-
-> **Managed Debugging Assistant**: A call to PInvoke function 'iNKORE.UI.WPF.Modern!iNKORE.UI.WPF.Modern.Controls.Primitives.MaximizedWindowFixer::GetWindowPlacement' has unbalanced the stack. This is likely because the managed PInvoke signature does not match the unmanaged target signature. Check that the calling convention and parameters of the PInvoke signature match the target unmanaged signature.
-
-This exception is **harmless and can be ignored**. If you want to get rid of this exception, you can set this property to **False** (not recommended, since it will break the maximize function).
-
-```ini
-ui:WindowHelper.FixMaximizedWindow="False"
-```
-
-For a better solution, you can turn off the exception breaking in the **Exception Settings** window in Visual Studio:
-
-![Don't break when PInvoke exception is thrown](dont-break-when-pinvoke-exception.png)
-
-Or you can simply UNcheck **Break when this exception type is thrown** or CHECK **(Except when throw from) iNKORE.UI.WPF.Modern.dll** when this exception appears, this will also ignore the exception.
-
-![Except when throw from](except-when-throw-from.png)
-
-### WindowHelper.CornerStyle
-
-You can set the corner style of the window with this property. You can choose one option from [WindowCornerStyle Enum](../../definitions/helpers/styles/window-corner-style).
-
-:::warning System compatibility
-
-The corner style is only available on Windows 11. If you're running the application on an older version of Windows, the corner style will not be applied.
-
-:::
-
 ### TitleBar.*ButtonAvailability
 
 There are three buttons located in the title bar by default: minimize, maximize/restore, and close. You can customize these buttons by using the three properties in **ui:TitleBar** class as well:
@@ -256,6 +186,34 @@ To provide the best look and feel, we need to take over the WindowChrome of the 
 If you modify the properties listed above, the modern styles and backdrop might be broken, and the window may not look as expected or even crash.
 
 :::
+
+### Maximize fixer
+
+As we have fully customized the window for modern styles, the default maximize behavior of the window may not work as expected. But no worries, we have got a way to fix this issue and make the window maximize as expected. However, this fix may cause an exception as follow:
+
+> **Managed Debugging Assistant**: A call to PInvoke function 'iNKORE.UI.WPF.Modern!iNKORE.UI.WPF.Modern.Controls.Primitives.MaximizedWindowFixer::GetWindowPlacement' has unbalanced the stack. This is likely because the managed PInvoke signature does not match the unmanaged target signature. Check that the calling convention and parameters of the PInvoke signature match the target unmanaged signature.
+
+This exception is **harmless and can be ignored**. If you want to get rid of this exception, you can set this property to **False** (not recommended, since it will break the maximize function).
+
+```ini
+ui:WindowHelper.FixMaximizedWindow="False"
+```
+
+For a better solution, you can turn off the exception breaking in the **Exception Settings** window in Visual Studio:
+
+![Don't break when PInvoke exception is thrown](dont-break-when-pinvoke-exception.png)
+
+Or you can simply UNcheck **Break when this exception type is thrown** or CHECK **(Except when throw from) iNKORE.UI.WPF.Modern.dll** when this exception appears, this will also ignore the exception.
+
+![Except when throw from](except-when-throw-from.png)
+
+### Customizations
+
+Use the following classes to customize the window control along with the title bar:
+
+- [WindowHelper](%BASE_NAME%/definitions/controls/helpers/window-helper)
+
+- [TitleBar](%BASE_NAME%/definitions/controls/primitives/titlebar)
 
 ## See also
 

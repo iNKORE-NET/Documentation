@@ -17,9 +17,9 @@ Inheritance: No inheritance for static classes.
 
 ### UseModernWindowStyle
 
-Determines whether the modern style should be applied to the window.
+Gets or sets whether the modern window style will be applied to the window. The modern window style is a custom window style that provides a modern look and feel to the window.
 
-More information on [Window](../../../components/dialogs/window#windowhelperusemodernwindowstyle).
+Only do you set this to true, all the properties below can work.
 
 - Type: `bool`
 
@@ -27,27 +27,29 @@ More information on [Window](../../../components/dialogs/window#windowhelperusem
 
 ### SystemBackdropType
 
-Specifies the system backdrop of the window.
+Gets or sets the system backdrop type of the window. You can choose one option from [BackdropType Enum](%BASE_NAME%/definitions/helpers/styles/backdrop-type).
 
-More information on [Window](../../../components/dialogs/window#windowhelpersystembackdroptype).
+:::warning System Compatibility
 
-- Type: [BackdropType](../../helpers/styles/backdrop-type)
+The availability of Acrylic backdrops are listed above. Mica and Tabbed are only available on Windows 11. If you're running the application on an older version of Windows, the system backdrops will not be applied.
+
+The option **Acrylic** will automatically choose the best API based on the system version. If you're running the application on Windows 11, it will use Acrylic11. If you're running the application on Windows 10, it will use Acrylic10. However, this may cause some unintended behaviors.
+
+:::
+
+- Type: [BackdropType](%BASE_NAME%/definitions/helpers/styles/backdrop-type)
 
 - Default value: `BackdropType.None`
 
-### UseAeroBackdrop
-
-This is obsolete and no longer works. Use **SystemBackdropType** instead.
-
-### UseAcrylicBackdrop
-
-This is obsolete and no longer works. Use **SystemBackdropType** instead.
-
 ### Acrylic10Color
 
-The color of the acrylic effect when applying acrylic using the older API.
+Gets or sets the color of the Acrylic10 backdrop. This property is only works when **SystemBackdropType** is `Acrylic10` or is `Acrylic` and running on Windows 10. You can set this property to a **Color** value to customize the color of the Acrylic10 backdrop.
 
-More information on [Window](../../../components/dialogs/window#windowhelperacrylic10color).
+:::warning Use Color values, not Brush
+
+This property only accepts **Color** values, not **Brush** values. If you pass a **Brush** value, an exception will be thrown. You can use **iNKORE.UI.WPF.Converters.ColorToBrushConverter** to convert a **Brush** to a **Color** (need to revert).
+
+:::
 
 - Type: `Color`
 
@@ -55,19 +57,17 @@ More information on [Window](../../../components/dialogs/window#windowhelperacry
 
 ### ApplyBackground
 
-Determines whether the background should be applied to the window.
-
-More information on [Window](../../../components/dialogs/window#windowhelperapplybackground).
+This property decides whether the **Background** property will be applied to the window. If you set this property to **False**, the **Background** property will be ignored and the window will not render its background. Usually we will automatically set this property depending on the backdrop you're using. You can also set this property manually to control the background rendering, though it's not commonly used. 
 
 - Type: `bool`
 
-- Default value: `true`
+- Default value: `true` (**True** when **SystemBackdropType** is **None**. Otherwise, it's **False**.)
 
 ### ApplyNoise
 
-Determines whether an extra noise layer should be applied to the window.
+This property decides whether the noise effect will be applied to the window. If you set this property to **False**, the noise effect will not be rendered. The noise effect is a subtle noise texture that makes the window look more natural and less flat. The default value is always **False** since we figured out that when you use the acrylic backdrop, the noise effect will be covered by system and it's not necessary to render the noise effect again.
 
-More information on [Window](../../../components/dialogs/window#windowhelperapplynoise).
+You can set this property to **True** to enable an additional noise effect manually.
 
 - Type: `bool`
 
@@ -75,9 +75,13 @@ More information on [Window](../../../components/dialogs/window#windowhelperappl
 
 ### CornerStyle
 
-Determines the corner style of the window.
+You can set the corner style of the window with this property. You can choose one option from [WindowCornerStyle Enum](../../definitions/helpers/styles/window-corner-style).
 
-More information on [Window](../../../components/dialogs/window#windowhelpercornerstyle).
+:::warning System compatibility
+
+The corner style is only available on Windows 11. If you're running the application on an older version of Windows, the corner style will not be applied.
+
+:::
 
 - Type: [WindowCornerStyle](../../helpers/styles/window-corner-style)
 
@@ -85,13 +89,33 @@ More information on [Window](../../../components/dialogs/window#windowhelpercorn
 
 ### FixMaximizedWindow
 
-Determines whether an extra maximize fixer should be applied to the window.
+Determines whether an extra maximize fixer should be applied to the window. This fixer will prevent the window from being maximized to the wrong size. This is a workaround for a bug in the default window style that causes the window to be maximized to the wrong size.
 
-More information on [Window](../../../components/dialogs/window#windowhelperfixmaximizedwindow).
+However sometimes this fixer may cause some exceptions. No worries, these exceptions are harmless and will not affect the normal use of the window.
+
+For more information, see [Window / Maximize fixer](%BASE_NAME%/components/dialogs/window#Maximizefixer).
 
 - Type: `bool`
 
 - Default value: `true`
+
+### ShouldDisplayManualBorder
+
+Determines whether the manual border should be displayed. The manual border is a border that is drawn manually by the window. It follows the **BorderBrush** and **BorderThickness** properties of the window, which allows you to customize the border of the window.
+
+This property is read-only. It is determined by your system version. In Windows 11 or greater, the DWM will automatically draw the border for you. In Windows 10 or lower, the manual border will be displayed.
+
+- Type: `bool`
+
+- Default value: `false` (**True** when running on Windows 10 or lower. Otherwise, it's **False**.)
+
+### ~~UseAeroBackdrop~~
+
+This is obsolete and no longer works. Use **SystemBackdropType** instead.
+
+### ~~UseAcrylicBackdrop~~
+
+This is obsolete and no longer works. Use **SystemBackdropType** instead.
 
 ## Fields
 
@@ -115,9 +139,9 @@ public static WindowChrome UpdateWindowChrome(this Window window);
 
 ## Remarks
 
-### Modern style needs to be applied manually
+### Component
 
-Unlike other controls, the modern style will not be applied automatically. You need to set **UseModernWindowStyle** to `true` to apply the modern style to the window.
+This class is used to customize the [Window](%BASE_NAME%/components/dialogs/window) component.
 
 ## See also
 
@@ -127,7 +151,7 @@ Unlike other controls, the modern style will not be applied automatically. You n
 
 ### Related articles
 
-- [Components / Window](../../../components/dialogs/window)
+- [Components / Window](%BASE_NAME%/components/dialogs/window)
 
 ### Source code
 
