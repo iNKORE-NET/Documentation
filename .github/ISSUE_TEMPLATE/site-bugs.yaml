@@ -23,27 +23,29 @@ body:
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
+      label: The Annoying Bug
+      description: What happened? Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
       value: "A bug happened!"
     validations:
       required: true
-  - type: dropdown
-    id: version
+  - type: input
+    id: reproduction
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-      default: 0
+      label: Reproduction
+      description: How can we reproduce the bug? Please provide the steps to reproduce the bug.
+      placeholder: |
+      1. 
+      2. 
+      3.
+      ..
     validations:
       required: true
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: Browser
+      description: What browsers are you seeing the problem on?
       multiple: true
       options:
         - Firefox
