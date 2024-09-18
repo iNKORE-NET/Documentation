@@ -1,15 +1,17 @@
-name: Bug Report
-description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
+name: Website System | Bug Report
+description: There's someting wrong with the website itself (Not the documentation!).
+title: "[Site | Bug] You Title Here"
+labels: ["bug", "for-website"]
+
+# projects: ["octo-org/1", "octo-org/44"]
+# assignees:
+#   - 
+
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this bug report! By taking this form, you're sure that the issue is related to bugs of the website itself and not the documentation. If you're looking to ask for a feature or report a documentation issue, please use the appropriate template.
   - type: input
     id: contact
     attributes:
@@ -48,17 +50,23 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+
   - type: checkboxes
-    id: terms
+    id: is-latest
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      label: At the time you file this issue, is it still happening after using Shift+F5 or clearing the cache?
+      description: If not, please update and check if the issue persists.
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: Yes
           required: true
+        - label: No
+          required: false
+
+  # - type: checkboxes
+  #   id: terms
+  #   attributes:
+  #     label: Code of Conduct
+  #     description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+  #     options:
+  #       - label: I agree to follow this project's Code of Conduct
+  #         required: true
