@@ -52,7 +52,7 @@ body:
         - Microsoft Edge
 
   - type: checkboxes
-    id: is-latest
+    id: latest
     attributes:
       label: At the time you file this issue, is it still happening after using Shift+F5 or clearing the cache?
       description: If not, please update and check if the issue persists.
