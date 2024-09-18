@@ -48,6 +48,7 @@ body:
     attributes:
       label: Contribution
       description: Are you willing to contribute to fixing the bug by submitting a pull request? If you are, we may help guide you through the process, you'll be credited for your contribution, and you can open a pull request whenever you're ready.
+      default: -1
       options:
         - Yes, I will contribute
         - No, I can't contribute
