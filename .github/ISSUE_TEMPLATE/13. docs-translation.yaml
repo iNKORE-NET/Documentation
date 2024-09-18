@@ -1,40 +1,28 @@
-name: Document Content | Bug Report
-description: There's a problem in the document content. (Not the website system!)
-title: "[Docs | Bug] You Title Here"
-labels: ["bug", "for-document"]
+name: Translation Request
+description: I want something to be translated into another language.
+title: "[Translation Request] You Title Here"
+labels: ["translation", "for-document"]
 
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! By taking this form, you're sure that the issue is related to the document content itself and not the website system. If you're looking to ask for a feature or report a website bug, please use the appropriate template.
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: The Annoying Bug
-      description: What happened? Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
-    validations:
-      required: true
+        Thanks for taking the time to fill out this translation request! By taking this form, you're asking for a document content to be translated into another language. If there's a problem in the document that is already translated, please use the `Document Content | Bug Report` template.
   - type: textarea
     id: location
     attributes:
       label: Location(s)
-      description: Where did you find the bug? Please provide the URL(s) of the page(s) where the bug is located.
+      description: Which document do you want to be translated? Please provide the URL(s) of the page(s) where the document is located.
       placeholder: https://docs.inkore.net/path/to/page
       value: https://docs.inkore.net/
     validations:
       required: true
-  - type: dropdown
-    id: is-localized
+  - type: textarea
+    id: language
     attributes:
       label: Localization
-      description: Does the bug only occur in specific languages, or is it present in all languages?
-      default: 1
-      options:
-        - Only in specific languages (Please tell us which languages in the next field)
-        - In all languages
+      description: Which language do you want the document to be translated into? (Split multiple languages with a comma)
+      placeholder: eg. Korean, Japanese, Chinese
     validations:
       required: true
   - type: textarea
@@ -62,9 +50,9 @@ body:
       options:
         - label: Check that there isn't [already an issue](https://github.com/iNKORE-NET/Documentation/issues) that reports the same issue to avoid creating a duplicate.
           required: true
-        - label: Make sure that the issue is related to bugs of the documentation content itself and not the website system. If you're looking to ask for a feature or report a website issue, please use the appropriate template.
+        - label: Make sure that you want us to translate the document that has not been (fully) translated yet. If there's a problem in the document that is already translated, please use the `Document Content | Bug Report` template.
           required: true
-        - label: Check that this is a concrete bug. If you're looking to ask for help or support, open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
+        - label: If you're looking to ask for help or support, open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
           required: true
         - label: I know that we can't guarantee that we will satisfy your request. This is not reall our duty to do everything anyone asks for. Also, I will treat our staff, contributors, and other users with respect and kindness.
           required: true
