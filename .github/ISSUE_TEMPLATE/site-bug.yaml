@@ -86,7 +86,7 @@ body:
           required: true
         - label: Make sure that the issue is related to bugs of the website itself and not the documentation. If you're looking to ask for a feature or report a documentation issue, please use the appropriate template.
           required: true
-        - label: Check that this is a concrete bug. For Q&A open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
+        - label: Check that this is a concrete bug. If you're looking to ask for help or support, open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
           required: true
   - type: input
     id: contact
