@@ -1,0 +1,24 @@
+{
+    "locales":
+    {
+        "zh-CN":
+        {
+            "value": "zh-CN",
+
+            "content":
+            {
+                "missingMdx": "此内容未以你的语言提供，以下为其他语言可用的版本。如果你非常需要此文档，可以在 [文档站仓库](%REPO_PATH%) 中发起 Issue 或者 Pull Request。"
+            }
+        },
+
+        "en-US":
+        {
+            "value": "en-US",
+
+            "content":
+            {
+                "missingMdx": "This content is not available in your language. Below is the version in another language that is currently available. If you need this document very much, you can create an Issue or Pull Request in the [Docs Repository](%REPO_PATH%)."
+            }
+        }
+    }
+}
