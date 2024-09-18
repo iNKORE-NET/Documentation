@@ -31,6 +31,7 @@ body:
     attributes:
       label: Localization
       description: Does the bug only occur in specific languages, or is it present in all languages?
+      default: 1
       options:
         - Only in specific languages (Please tell us which languages in the next field)
         - In all languages
