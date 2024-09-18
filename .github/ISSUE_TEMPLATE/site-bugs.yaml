@@ -52,9 +52,38 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
+        - Others 
     validations:
       required: true
-
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      description: Which operating system are you using to reproduce the bug?
+      multiple: true
+      options:
+        - Windows 11
+        - Windows 10
+        - Windows 8/8.1
+        - Windows 7
+        - Windows 7 or older
+        - OS X
+        - Ubuntu
+        - Fedora
+        - Debian
+        - CentOS
+        - Android
+        - iOS
+        - Others (Specify in the additional notes)
+    validations:
+      required: true
+  - type: textarea
+    id: others
+    attributes:
+      label: Additional Notes
+      description: Is there anything else you'd like to tell us? If you choose `Others` in the browser or system field, please specify here.
+    validations:
+      required: false
   - type: checkboxes
     id: checkboxes
     attributes:
