@@ -35,10 +35,10 @@ body:
       label: Reproduction
       description: How can we reproduce the bug? Please provide the steps to reproduce the bug.
       placeholder: |
-      1. 
-      2. 
-      3.
-      ..
+        1. 
+        2. 
+        3.
+        ..
     validations:
       required: true
   - type: dropdown
