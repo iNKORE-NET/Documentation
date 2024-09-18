@@ -1,4 +1,4 @@
-name: Translation Request
+name: Document Content | Translation Request
 description: I want something to be translated into another language.
 title: "[Translation Request] You Title Here"
 labels: ["translation", "for-document"]
