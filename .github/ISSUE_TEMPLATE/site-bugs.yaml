@@ -3,6 +3,10 @@ description: There's someting wrong with the website itself (Not the documentati
 title: "[Site | Bug] You Title Here"
 labels: ["bug", "for-website"]
 
+# projects: ["octo-org/1", "octo-org/44"]
+# assignees:
+#   - 
+
 body:
   - type: markdown
     attributes:
@@ -46,3 +50,19 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
+
+  - type: checkboxes
+    id: is-latest
+    attributes:
+      label: At the time you file this issue, is it still happening after using Shift+F5 or clearing the cache?
+      description: If not, please update and check if the issue persists.
+      required: true
+
+  # - type: checkboxes
+  #   id: terms
+  #   attributes:
+  #     label: Code of Conduct
+  #     description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+  #     options:
+  #       - label: I agree to follow this project's Code of Conduct
+  #         required: true
