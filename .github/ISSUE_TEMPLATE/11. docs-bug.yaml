@@ -41,7 +41,7 @@ body:
     id: others
     attributes:
       label: Additional Notes (optional)
-      description: Is there anything else you'd like to tell us? If you choose `Others` in the browser or system field, please specify here.
+      description: Is there anything else you'd like to tell us? If you choose `Only in specific languages` in the Localization field, please specify here.
     validations:
       required: false
   - type: textarea
