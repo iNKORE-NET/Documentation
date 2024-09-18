@@ -43,15 +43,14 @@ body:
       description: Is there anything else you'd like to tell us? If you choose `Others` in the browser or system field, please specify here.
     validations:
       required: false
-  - type: dropdown
-    id: will-contribute
+  - type: textarea
+    id: contribution
     attributes:
       label: Contribution
-      description: Are you willing to contribute to fixing the bug by submitting a pull request? If you are, we may help guide you through the process, you'll be credited for your contribution, and you can open a pull request whenever you're ready.
-      default: -1
-      options:
-        - Yes, I will contribute
-        - No, I can't contribute
+      description: Are you willing to contribute to fixing the bug by submitting a pull request? If you are, please tell us when you plan to start working on it and submit the PR.
+      placeholder: |
+        - ex. I'm planning to start working on it next week and submit the PR by the end of the month 
+        - ex. Sorry I can't help with that.
     validations:
       required: true
   - type: checkboxes
