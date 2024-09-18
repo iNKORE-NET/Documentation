@@ -52,11 +52,18 @@ body:
         - Microsoft Edge
 
   - type: checkboxes
-    id: latest
+    id: checkboxes
     attributes:
-      label: At the time you file this issue, is it still happening after using Shift+F5 or clearing the cache?
-      description: If not, please update and check if the issue persists.
-      required: true
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Check that there isn't [already an issue](https://github.com/iNKORE-NET/Documentation/issues) that reports the same bug to avoid creating a duplicate.
+          required: true
+        - label: Make sure that the issue is related to bugs of the website itself and not the documentation. If you're looking to ask for a feature or report a documentation issue, please use the appropriate template.
+          required: true
+        - label: Check that this is a concrete bug. For Q&A open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
+          required: true
+
 
   # - type: checkboxes
   #   id: terms
