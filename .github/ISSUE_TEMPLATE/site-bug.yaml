@@ -72,7 +72,7 @@ body:
   - type: textarea
     id: others
     attributes:
-      label: Additional Notes
+      label: Additional Notes (optional)
       description: Is there anything else you'd like to tell us? If you choose `Others` in the browser or system field, please specify here.
     validations:
       required: false
@@ -91,7 +91,7 @@ body:
   - type: input
     id: contact
     attributes:
-      label: Contact Details
+      label: Contact Details (optional)
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
     validations:
