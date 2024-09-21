@@ -3,6 +3,10 @@ notyoojun:
     title: Owner & Founder
     url: https://linktr.ee/NotYoojun
     image_url: https://github.com/NotYoojun.png
+    socials:
+      twitter: NotYoojun
+      github: NotYoojun
+      linkedin: NotYoojun
 
 ptcu:
     name: PtCu

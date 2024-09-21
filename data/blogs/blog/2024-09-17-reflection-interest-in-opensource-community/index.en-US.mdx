@@ -1,0 +1,186 @@
+---
+authors: "notyoojun"
+tags: ["opensource", "interest", "reflection", "community", "iNKORE.UI.WPF.Modern"]
+---
+
+# Review & Reflect: Conflict of Interest in Open-Source Community
+
+:::note
+
+This article is originally written in Chinese. I translated it in a hurry and may not be accurate. If you find any mistakes or have any suggestions, please feel free to contact me.
+
+:::
+
+Before starting today's blog, I would like to wish everyone a happy Mid-Autumn Festival and a happy family reunion!
+
+The purpose of my writing this article is not to criticize, "condemn" and criticize someone, but to simply state the course of events and talk about my feelings. I also hope that more people and I can distinguish between right and wrong, learn lessons, and see such problems more clearly in life and work. Maybe you haven't seen or experienced such things yet, but maybe one day it will be you who is exposed. (No malice, just a reminder)
+
+:::info
+
+Since the incident occurred in mainland China, chat screenshots will be displayed in Chinese.
+Some names and project names have been modified to protect personal privacy. Pigs may not respect people, but people must respect pigs.
+
+:::
+
+*(Looking at the clock: 20:30, takes a sip of coffee)*
+
+I feel that when the interests of both parties' conflict, there is no absolute right or wrong, no justice or injustice, only the imbalance between your interests and mine. I will try to be as neutral as possible in the event sorting section. Please forgive me, I know I cannot achieve a neutral failure, because I and we are also the main characters in so many events. As for other parts, I think that only by standing in my own perspective can I have the most accurate expression. I think insiders cannot fully stand in the perspective of others, especially the perspective of the other party when thinking about the problem.
+
+Perhaps you who are reading this article are a thorough outsider, or have a higher level of thinking than me, I'm sorry. Cause everyone's situation and realm are different, I think this is worth respect and understanding.
+
+## Never thought that one day I could eat melon on my head
+
+As the title goes, I never thought so, but it seems that it was not a big surprise at all. I made a control library in the name of the studio: iNKORE.UI.WPF.Modern (hereinafter referred to as iUWM), more information about this control library can be found here:
+
+https://github.com/iNKORE-NET/UI.WPF.Modern
+
+### Background
+
+I remember when I just started our studio's first desktop application, I decided to use WPF for development, but the interface that Microsoft made for WPF... it's really hard to judge. After several hours, I found a project called ModernWpf on Github. The controls in it are all in the style of Windows 10, and at this time Windows 11 has been released, so I was thinking, is there a control library in the style of Windows 11? Later I found a branch repository of ModernWpf, and the controls in it are in the style of Windows 11.
+
+The author of this fork is one of the main characters in this incident, let's just call him Whatwhat. I looked at the license of this library, it was (and is) the MIT license, so I forked this library and started my control library journey. Before I started my control library, I also tried to connect with the original author Whatwhat, to begin with he wanted me to join his ModernWpf project. Whatwhat's idea is "porting UWP", while my idea is "creating WPF", so we fell out.
+
+After that, I started my control library journey, I named this library iUWM, the purpose of this library is to make it easier for WPF developers to use Windows 11 style controls. I added a lot of my own ideas to this library, such as control styles, control behaviors, etc., for example, I gave users the ability to completely control the window title bar height and buttons, which Whatwhat thought should not exist.
+
+At first, I wrote this library mainly for myself and the studio's projects, so I casually made the repository public on Github, but I didn't expect this repository to be discovered quickly, and now it has a considerable number of stars and usage. I am very happy and proud. However, Whatwhat does not buy it, he thought that this library is his fork library, and I should continue to use the name of ModernWpf instead of iUWM.
+
+:::info My judgments
+
+According to the MIT open-source agreement, derivative works need to mark the original author, <font color="red">I admit that this is completely my fault, I did not write Whatwhat's name into the README.md of the project, I sincerely apologize to Whatwhat here</font>. But according to the MIT agreement, derivative works <font color="red">do not need to follow the original author's wishes and commands</font>.
+
+This Whatwhat had a lot of beef with the name of my library, he thought that this library should continue to use the name of ModernWpf, because I am based on the branch library of ModernWpf. However, I think this library is mine, I have the right to give it a name that I think is appropriate, even if this name includes the name of my studio.
+
+:::
+
+As of this article, I and other contributors (excluding Whatwhat) have done a lot of work for this library, with more than 400 commits (at this time Whatwhat's commit count is about 120 times).
+
+:::info My judgments
+
+I don't think comparing the number of commits is a good standard, and I also **don't want to say** ~~"I have more commits than Whatwhat, so I am the main contributor to this library"~~. But I think this is a data that can explain the problem, at least it shows that my contribution to this library is obvious and unignorable.
+
+![](Screenshot_2024-09-17-21-00-01-031.jpg)
+
+:::note
+
+The profile with a flower and blue background is Whatwhat, and the one with a cartoon avatar is me.
+
+:::
+
+## Wire that Activated the Bomb
+
+After this library was released and gradually walked into the public eye, we have harvested much more stargazers and users than Whatwhat's ModernWpf (it's above 10 times more). However, at this time Whatwhat began to make some noise in the community. He declared his order again - I should use the name of ModernWpf.
+
+How did I know that? There's a QQ Group that the owner created to gather feedback and provide support for users of his product. One day someone shared a video of MCSkinn, our Minecraft Skin Editor. The video was made by Aris, not me, so I was totally unaware of it. Later, a video of iUWM was shared in the group, and Whatwhat saw it. He was not happy about it, and he started his **journey of Yin and Yang**.
+
+Whatwhat jumped out to say iNKORE! stole his work, and he was the original author of the library. He also claimed that his fork and the WPF UI library were amazing while mine was shit. After that, he highlighted that my changes and contributions were stupid.
+
+:::info
+
+I don't agree with his speech. It's his right to express his opinion, then I think it's my right to address mine here. He could say my actions were stupid, but that doesn't mean mine library is worse than his. If one think mine was stupid, just don't use it.
+
+Everyone has his own judgment criteria. When one want others use his things instead of mine, why not just make yours ACTUALLY better than me? In this pattern, I believe the public will finally stand on the right side.
+
+:::
+
+At first glance, some people were discussing that it's unethical of us that we didn't give him a credit. We realized this in the first place and added Whatwhat's name as soon as possible:
+
+https://github.com/iNKORE-NET/UI.WPF.Modern/commit/45a2286e39b2801b52fcf9fb478b8172a8c8c79e
+
+I also reached out to Whatwhat for his opinion, but he scoffed me back:
+
+![](Screenshot_2024-09-17-20-51-43-989.jpg)
+
+:::info 
+
+I don't this this is acceptable, so I removed his name right after this conversation.
+
+:::
+
+I though this is the end of the story, but it's not. In a moment, Whatwhat began to be more aggressive and started to attack us. He said "no matter what I will reprimand anyway" and "whatever you do I'm not gonna accept it".
+
+A few minutes later, he said by restoring the name and adding credits will solve everything:
+
+![](Screenshot_2024-09-17-22-11-09-444.jpg)
+
+### Keep Pushing the Boundaries
+
+Fine, you're right. We changed the name of iUWM to “Fluensign.WPF” and added Whatwhat and other authors' names. But Whatwhat kept pushing the boundaries, and became even meaner:
+
+![](Image_1726581825491.jpg)
+
+After that, Whatwhat further stated that his goal is to "make the WPF world's WAS", and openly mocked the iUWM project, claiming that we just "copy and paste, then put our own name on it.”
+
+![](Screenshot_2024-09-17-22-22-48-816.jpg)
+
+:::info My judgments
+
+His speech not only belittled our efforts and contributions, but also tried to discredit our project in this way, which brought us great trouble and dissatisfaction. Maybe he automatically ignored the major changes we made, except for copy and paste and rename. 😅
+
+He wanna "make the WPF world's WAS", I think it's his right to do whatever he wants in his territory. But I think it's not right to attack others' efforts and contributions in this way, or even try to give us orders and control our stuff.
+
+:::
+
+### What did we do wrong
+
+We didn't add Whatwhat and other authors' name according to the MIT license. This is our fault, and we have corrected it as soon as possible. At the same time, we also marked the name of another author Kinnara.
+
+Apart from this, I really can't figure out where we went wrong? Is it wrong not to follow the original author's wishes? If so, before you read on, think about where you went wrong in your life after you were born.
+
+### This reminds me of 
+
+This whole thing made me think a lot. I believe that in the open-source community, we should respect others' work more, whether they are the original authors or derivative authors, not only to undermine them, but for our own benefit as well. In addition, I have also realized the importance of open-source licenses. We should adhere to the terms of the open-source licenses. Even like the MIT license, which is very permissive, we should also respect the original author's rights and interests. The open-source world gives us freedom, but this freedom also needs to be based on rules and respect.
+
+In addition, whether as a developer or an ordinary person, we will always encounter unreasonable and mean people, we should keep calm and not be affected by their words.
+
+In fact, what he thinks and does may not be so important, what is important is that when he uses his strange logic to undermine others, it will directly affect our personal and organizational reputation, and <font color="red"> let those who don't understand be led by the rhythm</font>.
+
+Therefore, in the face of such a situation, we should stick to our position, remain objective and calm. It's time to clarify the facts through open and transparent communication and call on everyone to pay more attention to the value of the project itself, rather than be led by the emotional remarks of a few bad guys.
+
+### What if I was Whatwhat
+
+As the author of open-source projects, If I see my projects being simply forked, renamed and re-distributed by someone else, it's a certain that I will be angry as well. I can really understand Whatwhat's feelings: I wrote a note-taking software a long time ago that was neither too simple nor too complex. Later, someone forked my project and then changed the name. At that time, I was very uncomfortable with it.
+
+I think if you just change the name without contributing anything original, I agree that it's extremely unethical. But if you have made a lot of changes and contributions, I think it's your right to give it a name that you think is appropriate, even if it includes your (and your company's) name, as long as you adhere to the open-source license.
+
+As the original author, it's significant to choose a suitable open-source license for your project. If you choose a permissive license like MIT, you should be prepared for the possibility that someone will fork your project and make changes to it. If you don't want others to fork your project, you can choose a more restrictive license, such as GPL, or even keep it closed source.
+
+But no matter what, after we added Whatwhat's name in the README.md, he continued to be aggressive, which made me really difficult to accept. I think this is not the right way to solve the problem or communicate with others.
+
+Check out the chat record below, I have no words but absured to say:
+
+![](Image_1726734217223.png)
+
+### This is only one time I was aware of
+
+At the beginning of this project, Whatwhat already showed dissatisfaction and made many "comments" in one group chat, but I didn't pay much attention to it. I thought it was just a temporary emotion and that it might get better over time. Later, I saw him making some comments in several different groups sporadically. I believe what I saw is just the tip of an iceberg; he must have done these many times elsewhere. This outburst happened in the Fris Lunch group, which I am not even a part of — I learned about it from others.
+
+I believe Whatwhat can do it once, he can do it twice, three times and more... I don't know what he will do next, but I believe he has done far more than I can touch.
+
+> **Opinions from people around me**
+>
+> - So Whatwhat saying we didn't give him credit iss not unreasonable just say it and it's done, he's so mean
+> - Haha, Whatwhat is not generous enough
+> - Seeking common ground while reserving differences is what he said, The one who asked for a big unification and dictatorship is also him
+
+## The Next Door Also Exploded
+
+At the same time as this incident occurred, another open-source project next door also exploded. However, since it's not our business, we can't judge too much. But I think this incident also reminds us to be careful with the people around us, and not to let ourselves and our users be led by the rhythm.
+
+## So, what's next
+
+Through these events, I deeply feel the complexity and challenges of the open-source community. In fact, the real challenge is not technology, but human nature. You never know what people around, or outside you, will do to trip you up.
+
+Although we made some mistakes in this incident, we also made corrections in time after discovering the problems. Although the MIT license seems to be a very permissive, we should also respect the original author's work and follow the terms of the license: mark the original author's name in a prominent place, not only to respect the original author, but also to avoid a lot of trouble and opportunities for others to find bones in your eggs.
+
+At the same time, I also wish that all open-source related people could be more perspective, more tolerant when facing such problems, avoid mixing personal feelings into the project, and focus on the value of the project itself. Only this way can more excellent projects born and grow, and the open-source community can be more harmonious and prosperous.
+
+*(Quaffing the last sip of coffee, looking at the clock, it's perfect 22:00)*
+
+It's better to avoid trouble than to deal with it. Why bark when you can talk? I usually respect everyone, unless the other party disrespects me first.
+
+Today's event, I hope everyone can see it clearly and make a wise judgment.
+
+Once again, thank you to everyone who has contributed to the open-source community, and I hope that we can all work together to maintain this precious open world.
+
+Hope everyone can be treated nicely with kindness.
+

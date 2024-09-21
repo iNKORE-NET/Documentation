@@ -1,0 +1,66 @@
+name: Document Content | Translation Request
+description: I want something to be translated into another language.
+title: "[Translation Request] You Title Here"
+labels: ["translation", "for-document"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this translation request! By taking this form, you're asking for a document content to be translated into another language. If there's a problem in the document that is already translated, please use the `Document Content | Bug Report` template.
+  - type: textarea
+    id: location
+    attributes:
+      label: Location(s)
+      description: Which document do you want to be translated? Please provide the URL(s) of the page(s) where the document is located.
+      placeholder: https://docs.inkore.net/path/to/page
+      value: https://docs.inkore.net/
+    validations:
+      required: true
+  - type: textarea
+    id: language
+    attributes:
+      label: Localization
+      description: Which language do you want the document to be translated into? (Split multiple languages with a comma)
+      placeholder: eg. Korean, Japanese, Chinese
+    validations:
+      required: true
+  - type: textarea
+    id: others
+    attributes:
+      label: Additional Notes (optional)
+      description: Is there anything else you'd like to tell us?
+    validations:
+      required: false
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you willing to contribute to fixing the bug by submitting a pull request? If you are, please tell us when you plan to start working on it and submit the PR.
+      placeholder: |
+        - ex. I'm planning to start working on it next week and submit the PR by the end of the month 
+        - ex. Sorry I can't help with that.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Check that there isn't [already an issue](https://github.com/iNKORE-NET/Documentation/issues) that reports the same issue to avoid creating a duplicate.
+          required: true
+        - label: Make sure that you want us to translate the document that has not been (fully) translated yet. If there's a problem in the document that is already translated, please use the `Document Content | Bug Report` template.
+          required: true
+        - label: If you're looking to ask for help or support, open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
+          required: true
+        - label: I know that we can't guarantee that we will satisfy your request. This is not reall our duty to do everything anyone asks for. Also, I will treat our staff, contributors, and other users with respect and kindness.
+          required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details (optional)
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false

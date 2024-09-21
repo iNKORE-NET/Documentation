@@ -1,0 +1,85 @@
+name: Document Content | Feature Request
+description: Suggest an idea for one or more documents (Not the website system!).
+title: "[Docs | Feature] You Title Here"
+labels: ["enhancement", "for-document"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request! By taking this form, you're asking for a new feature, improvement or other requests to the document content itself. If you're looking to report a bug, or ask for a website issue, please use the appropriate template.
+  - type: textarea
+    id: why
+    attributes:
+      label: Related Problem (optional)
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: false
+  - type: textarea
+    id: solution
+    attributes:
+      label: The Feature
+      description: What's the feature you'd like to be added? Describe the solution you'd like.
+      placeholder: A clear and concise description of what you wanna happen
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Location(s) (if applicable)
+      description: Where did you find the bug? Please provide the URL(s) of the page(s) where the bug is located.
+      placeholder: https://docs.inkore.net/path/to/page
+      value: https://docs.inkore.net/
+    validations:
+      required: false
+  - type: dropdown
+    id: is-localized
+    attributes:
+      label: Localization
+      description: Is this feature request only applicable to specific languages, or is it applicable to all languages?
+      default: 1
+      options:
+        - Only in specific languages (Please tell us which languages in the next field)
+        - In all languages
+    validations:
+      required: true
+  - type: textarea
+    id: others
+    attributes:
+      label: Additional Notes (optional)
+      description: Is there anything else you'd like to tell us? If you choose `Only in specific languages` in the Localization field, please specify here.
+    validations:
+      required: false
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you willing to contribute to add this feature by submitting a pull request? If you are, please tell us when you plan to start working on it and submit the PR.
+      placeholder: |
+        - ex. I'm planning to start working on it next week and submit the PR by the end of the month 
+        - ex. Sorry I can't help with that.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Check that there isn't [already an issue](https://github.com/iNKORE-NET/Documentation/issues) that reports the same issue to avoid creating a duplicate.
+          required: true
+        - label: Make sure that the issue is a request fpr the documentation content itself and not the website system. If you're looking to report a bug or website issues, please use the appropriate template.
+          required: true
+        - label: Check that this is a request that is a feature or something we can take action on. open a [GitHub Discussion](https://github.com/iNKORE-NET/Documentation/discussions) or join [our community](https://inkore.net/about#social).
+          required: true
+        - label: I know that we can't guarantee that we will satisfy your request. This is not reall our duty to do everything anyone asks for. Also, I will treat our staff, contributors, and other users with respect and kindness.
+          required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details (optional)
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
