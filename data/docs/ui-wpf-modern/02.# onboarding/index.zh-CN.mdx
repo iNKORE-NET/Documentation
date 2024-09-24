@@ -180,23 +180,24 @@ ui:WindowHelper.SystemBackdropType="Mica"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StarterKit" 
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
 # highlight-next-line
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-// highlight-start
+# highlight-start
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:WindowHelper.SystemBackdropType="Mica"
         ui:TitleBar.Height="36"
-// highlight-end
+# highlight-end
         mc:Ignorable="d"
         Title="欢迎！" Height="450" Width="800">
     
     <!--我在这里添加了一些内容，您可以添加任何您想要的内容-->
-    <ui:SimpleStackPanel VerticalAlignment="Center" Spacing="5">
+    <ikw:SimpleStackPanel VerticalAlignment="Center" Spacing="5">
         <TextBlock Text="Fluent Design 很美。" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
-        <TextBlock Text="但是嘿，我们值得 :-)" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Text="但是嘿，我们值得拥有 :-)" FontSize="20" TextAlignment="Center"/>
 
         <Button Content="Hello world!" HorizontalAlignment="Center" Margin="0,20,0,0"/>
-    </ui:SimpleStackPanel>
+    </ikw:SimpleStackPanel>
 </Window>
 ```
 
@@ -211,3 +212,5 @@ ui:WindowHelper.SystemBackdropType="Mica"
 :::tip
 
 本文的完整源代码可以在这里找到：https://github.com/iNKORE-NET/UI.WPF.Modern/tree/main/samples/StarterKit
+
+:::
