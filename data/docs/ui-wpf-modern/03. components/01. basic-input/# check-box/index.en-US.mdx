@@ -64,7 +64,7 @@ Indeterminate:
 
 ## Remarks
 
-CheckBox controls inherit from [ToggleButton](./toggle-button) and can have three states: checked (selected), unchecked (cleared), and indeterminate.
+CheckBox controls inherit from [ToggleButton](%BASE_NAME%/components/basic-input/toggle-button) and can have three states: checked (selected), unchecked (cleared), and indeterminate.
 
 A CheckBox is a ContentControl, which means that it can contain a single object of any type (such as a string, an image, or a panel). For more information, see the [ContentControl](https://learn.microsoft.com/en-us/dotnet/api/system.windows.controls.contentcontrol) class.
 
@@ -74,7 +74,7 @@ Use a single check box for a binary yes/no choice, such as with a "Remember me?"
 
 ![A single check box used for an individual choice](single-check-box.png)
 
-For a binary choice, the main difference between a check box and a [**toggle switch**](./toggle-switch) is that the check box is for status and the toggle switch is for action. You can delay committing a check box interaction (as part of a form submit, for example), while you should immediately commit a toggle switch interaction. Also, only check boxes allow for multi-selection.
+For a binary choice, the main difference between a check box and a [ToggleSwitch](%BASE_NAME%/components/basic-input/toggle-switch) is that the check box is for status and the toggle switch is for action. You can delay committing a check box interaction (as part of a form submit, for example), while you should immediately commit a toggle switch interaction. Also, only check boxes allow for multi-selection.
 
 Use **multiple check boxes** for multi-select scenarios in which a user chooses one or more items from a group of choices that are not mutually exclusive.
 
@@ -86,7 +86,7 @@ When options can be grouped, you can use an indeterminate check box to represent
 
 ![Check boxes used to show a mixed choice](tree-check-boxes.png)
 
-Both check box and radio button controls let the user select from a list of options. Check boxes let the user select a combination of options. In contrast, radio buttons let the user make a single choice from mutually exclusive options. When there is more than one option but only one can be selected, use a [radio button](./radio-button) instead.
+Both check box and radio button controls let the user select from a list of options. Check boxes let the user select a combination of options. In contrast, radio buttons let the user make a single choice from mutually exclusive options. When there is more than one option but only one can be selected, use a [RadioButton](%BASE_NAME%/components/basic-input/radio-button) instead.
 
 :::tip
 
@@ -118,11 +118,11 @@ To fix this, you can simply set **MinWidth** property to `0` like this:
 
 ### Related articles
 
-- [Components / ToggleButton](./toggle-button)
+- [Components / ToggleButton](%BASE_NAME%/components/basic-input/toggle-button)
 
-- [Components / ToggleSwitch](./toggle-switch)
+- [Components / ToggleSwitch](%BASE_NAME%/components/basic-input/toggle-switch)
 
-- [Components / RadioButton](./radio-button)
+- [Components / RadioButton](%BASE_NAME%/components/basic-input/radio-button)
 
 ### Microsoft Learn
 

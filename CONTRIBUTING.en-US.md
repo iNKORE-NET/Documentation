@@ -82,6 +82,21 @@ If any error messages pop up, you should check your settings.
 Before using MCSkinn, you need a directory representing your skin library. It can be...
 ```
 
+### Compress resource files as much as possible
+
+Oversized resource files will not only greatly waste our bandwidth, but also make users feel uncomfortable when loading pages. Therefore, please compress your resource files as much as possible to reduce the file size. For images, we require that a single image is not allowed to exceed 1MB (recommended not to exceed 512 KB). If your image exceeds this size, please consider using a format with a higher compression ratio, such as WebP or JPEG2000.
+
+While using lossy compression, we ask you to keep the original file before compression in the original folder so that we can view and modify it when needed. You can create a new folder named `.unused` in the article directory and put the original file in it, so that the original file will not be packaged into the site. For example, after the launcher-home image is processed, the folder structure is as follows:
+
+```plaintext
+launcher-home/
+├── .unused/
+│ ├── launcher-home.png
+├── launcher-home.jpg
+├── index.en-US.mdx
+├── ...
+```
+
 ## Language-specific Details
 
 ### Space between latin and other characters

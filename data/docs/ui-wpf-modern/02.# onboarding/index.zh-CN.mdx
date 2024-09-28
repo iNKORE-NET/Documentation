@@ -84,11 +84,11 @@
 
 :::info
 
-搜索时会出现一些其他库。您可以在我们的 [Github 个人资料](https://github.com/iNKORE-NET) 和它们的存储库中了解更多关于它们的信息。
+搜索时会出现一些其他库。您可以在我们的 [Github 资料](https://github.com/iNKORE-NET) 和它们的存储库中了解更多关于它们的信息。
 
 :::
 
-:::warning 为什么选择 **iNKORE.UI.WPF**？
+:::warning 为什么需要 **iNKORE.UI.WPF**？
 
 通常，我们使用 `iNKORE.UI.WPF` 作为所有 WPF 库的基础库。它包含一些在所有 WPF 库中共享的常用工具和控件。
 
@@ -180,23 +180,24 @@ ui:WindowHelper.SystemBackdropType="Mica"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StarterKit" 
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
 # highlight-next-line
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-// highlight-start
+# highlight-start
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:WindowHelper.SystemBackdropType="Mica"
         ui:TitleBar.Height="36"
-// highlight-end
+# highlight-end
         mc:Ignorable="d"
         Title="欢迎！" Height="450" Width="800">
     
     <!--我在这里添加了一些内容，您可以添加任何您想要的内容-->
-    <ui:SimpleStackPanel VerticalAlignment="Center" Spacing="5">
+    <ikw:SimpleStackPanel VerticalAlignment="Center" Spacing="5">
         <TextBlock Text="Fluent Design 很美。" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
-        <TextBlock Text="但是嘿，我们值得 :-)" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Text="但是嘿，我们值得拥有 :-)" FontSize="20" TextAlignment="Center"/>
 
         <Button Content="Hello world!" HorizontalAlignment="Center" Margin="0,20,0,0"/>
-    </ui:SimpleStackPanel>
+    </ikw:SimpleStackPanel>
 </Window>
 ```
 
@@ -211,3 +212,5 @@ ui:WindowHelper.SystemBackdropType="Mica"
 :::tip
 
 本文的完整源代码可以在这里找到：https://github.com/iNKORE-NET/UI.WPF.Modern/tree/main/samples/StarterKit
+
+:::
