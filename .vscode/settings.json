@@ -1,0 +1,11 @@
+{
+    "files.associations":
+    {
+        "*.json": "jsonc"
+    },
+
+    "[jsonc]":
+    {
+        "editor.wordWrap": "on"
+    },
+}
