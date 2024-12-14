@@ -1,13 +1,13 @@
 {
     "label": "技巧",
-    "link": 
+    "link":
     {
         "type": "generated-index",
-        "title": "技巧",
+        "title": "提示与技巧",
         "description": "Add description!"
     },
-    "customProps": 
+    "customProps":
     {
-        
+
     }
 }
