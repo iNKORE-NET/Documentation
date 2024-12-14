@@ -1,0 +1,9 @@
+{/* 此库默认与系统的这几个设置保持同步：Theme scheme，accent color，自动隐藏滚动条。其中 自动隐藏滚动条 需要 win11，其他的至少要 win10。.net framework 应用无需任何处理即可保持同步；对于 .net 应用，需要将目标平台设置为 10.0.18362.0 以上才可以使用此功能。请注意，将目标平台设置为 10.0.18362.0 以上会导致你的应用生成目录下多出两个 dll（约 25mb）的依赖（删掉后程序无法启动）；而将目标平台设置为 7.0 不会有这两个 dll，但是 1. 同步功能无法运作，2. 项目错误列表中会出现一个警告，这个警告是无害的，忽略即可。<这里说明多出来的两个 dll 是微软 .net 的设计缺陷，因为要和 winrt 交互，撇清关系，我们不背这个锅>  另外即使满足自动同步的条件，你也可以手动指定这些设置。 */}
+
+# System Settings Awareness
+
+This library is designed to keep in sync with the theme settings of the system. This greatly improves the user experience, as the app will look more native and consistent with the system.
+
+## Available Settings
+
+- **Theme scheme**: Light or dark mode that for applications. 
