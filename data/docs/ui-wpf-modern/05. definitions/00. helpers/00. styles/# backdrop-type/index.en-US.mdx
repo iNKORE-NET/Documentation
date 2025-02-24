@@ -97,6 +97,18 @@ These images show the difference between Mica and Mica Alt in a title bar with t
 
 ![](mica-alt-tabs.png)
 
+### System-wide features
+
+The system backdrop type is a system-wide feature. This means that we don't implement the backdrop effect ourselves, or have full control over it. What we do is to tell the system to apply the backdrop effect to the window.
+
+:::danger Note
+
+DO NOT ask us to do anything that we don't have control over. For example, improving the performance of Acrylic10, force the system to apply the backdrop effect to a specific control, or change the color of the Acrylic11 effect. We can't do that. If you have any issues with the system backdrop, please report them to Microsoft.
+
+If your idea is not working on other Win32 applications, it won't work on our library either. We are using the same APIs that other Win32 applications use. Before asking us to do something, please make sure that it's possible to do it on other Win32 applications.
+
+:::
+
 ## See also
 
 ### Related articles
