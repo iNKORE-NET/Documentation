@@ -12,54 +12,28 @@ This page will guide you to install and config MCSkinn.
 
 ## Step 1: Download and Install
 
-:::warning
+MCSkinn is currently in an early preview stage. You can try it out directly by visiting [https://mcskinn.inkore.app](https://mcskinn.inkore.app). Please note that since MCSkinn is still in its early preview phase, you may encounter some issues during use — this is completely normal. You can report any problems [here](https://github.com/iNKORE-NET/MCSkinn/issues/new), and we’ll work on fixing them as soon as possible.
 
-iNKORE Hub is corrently not available. Please ignore the instructions below, and install MCSkinn through Microsoft Store:
-
-<a href="https://apps.microsoft.com/detail/9n8sjt329hh1?mode=mini">
-	<img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
-</a>
-
-For more infomation, please check [this announcement](https://docs.inkore.net/en-us/announcements/2024/09/30/legacy-hub-service-suspended).
-
-### Install iNKORE Hub
-
-You can install our products quickly and conveniently using **iNKORE Hub**. If you don't have **iNKORE Hub** on your computer yet, please click the button below to get **iNKORE Hub** download link and instructions. If you have already installed, skip this step.
-
-[Download iNKORE Hub](https://inkore.net/hub-windows)
-
-After installing **iNKORE Hub**, there should be a shortcut in your start menu like this.
-
-![Open Hub in start menu](hub-in-start-menu.png)
-
-### Open iNKORE Hub and Download MCSkinn
-
-Click **iNKORE Hub** in the start menu programs. After initializing, click the **products** tab in the left panel. You should see MCSkinn in the list. Click the **Install** button and wait a minute while MCSkinn is being installed. After installation, the **Install** button should be changed to **Open**. Now MCSkinn is successfully installed into your computer.
-
-![Download MCSkinn in **iNKORE Hub**](download-mcskinn-in-hub.png)
-
-:::info Troubleshooting
-
-If there is any error message popping up, you should check your network connection, antivirus software and system environment. If that doesn't work, please [contact support](studios@inkore.net), we're more than happy to help.
-
-:::
+Also, please be aware that MCSkinn does **not** have a desktop version yet. If you come across anything claiming to be "MCSkinn for Windows" or similar, please verify its authenticity. A desktop version is planned for the future — stay tuned!
 
 ## Step 2: Start MCSkinn
 
-### Preparations
+After launching MCSkinn, you’ll need a directory (also known as a folder) to serve as your skin library. This folder can be empty or filled with your personal skins. All your skins will be stored in this directory. If you want to create a skin from scratch, simply create an empty skin. If you wish to edit skins downloaded from the internet, you’ll need to move (or copy) those skins into this directory. MCSkinn cannot view or edit skins located outside of this directory.
 
-Before using MCSkinn, you need a directory (a.k.a. a given folder) representing your skin library. It can be empty or filled with your personal skins. All your skins designs will be in this directory. If you want to create a skin from zero, just create an empty one. If you'd like to edit skins downloaded from the Internet, you need to move (or copy) the skins to that directory. MCSkinn cannot view or edit skins that are outside this directory.
+:::warning
 
-### Open app and first initialization
+**Do not** create your skin directory inside the MCSkinn program folder. We are **not** responsible for any loss of skins due to software updates or other issues!
 
-After everything is ready, you should be able to see MCSkinn shortcut in the start menu and desktop. Click it to start the app.
+:::
 
-![Start MCSkinn in start menu](start-mcskinn-in-start-menu.png)
+For the web version and desktop version, due to architectural limitations, there are two different handling methods:
 
-If you're the first time using MCSkinn on this computer, you will see this message:
+### Web Version
 
-![The first run of MCSkinn](mcskinn-first-run.png)
+Due to web architecture limitations, MCSkinn cannot fully access directories and therefore does not support multi-skin editing. To import your skin, follow these steps:
 
-It's time to add your skin directory! Click **Yes**, and select the directory you've prepared.
+After loading the MCSkinn webpage, click the **"Open"** button in the left sidebar. After clicking, your webpage should display something like this:
 
-Now everything is set. You can start working immediately or continue reading more about how to use MCSkinn!
+![](open-document-alert.png)
+
+At the same time, a file picker dialog provided by your browser will pop up. Select the skin you want to edit and click **"Confirm"** to proceed.

@@ -1,0 +1,14 @@
+---
+authors: "notyoojun"
+tags: ["browser", "extension", "MCSkinn"]
+---
+
+# How much influence does the browser environment have on the normal operation of the program
+
+the left picture shows an environment without any extensions installed, and everything is normal; the right picture shows an environment with a bunch of extensions and tampermonkey scripts installed, and some models cannot be loaded at all, and the loaded models cannot select templates.
+
+The extensions you installed have the authority to interfere with and modify everything in the entire page (including UI, program execution, network access, etc.). This might lead to unpredictable disasters.
+
+Another confirmed problem is that the built-in Google Translator in your browser will disrupt the normal operation of the program, causing the UI to become messy or the program to crash. There is currently no good solution for this problem in the industry. If our program does not provide a translation in the language you need, please let us know or contribute translations on Github.
+
+![](Screenshot_2025-04-12.png)
